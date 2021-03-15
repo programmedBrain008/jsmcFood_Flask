@@ -1,0 +1,693 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Order Form</title> 
+{% endblock %}
+
+{% block body %} 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="container">
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}   
+    <header id="mainheader">
+        <div class="container">
+            <div class="fixed-top">
+                <nav id="mainheader">
+                    <ul>
+                        <li><img src="static/images/leftheaderimage2.png" alt="JSMC Logo" width=60 height=60/></li>
+                        <li><a href="{{ url_for('snackPage') }}">Home</a></li>
+                        <li><a target="_blank" href="http://jsmconline.org/about_us.php">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>  
+    </header>
+    <div class="container border-bottom mb-4">
+        <h1>Order Form</h1>
+        <br>
+        <h5>All sales are final and returns are not accepted.</h5>
+        <br>
+        <br>
+    </div>
+    {% if makh or jmkh or jtkh or plkh or amkh or mekh or plpa or mapa or plse or homi or kmmi or sumi or pack or mepa or stga or bhga or ph or bsbh or rase %}
+        <div class="container rounded-lg border-bottom mb-4 bg-info">
+            <div class="ml-3 mr-3">
+                <br>
+                <div class="container w3-show-inline-block">
+                    <h1 style="float:left">Your Cart:</h1>    
+                    <a style="float:right" type="button" href="/" class="btn btn-success m-1">
+                        Shopping Page
+                    </a>
+                    <br>
+                    <br>
+                    <hr>
+                </div>
+                <br>
+                <div class="container text-center">
+                    <div class="container table-responsive p=4">
+                        <table id="cartTable" class="container table table-hover table-bordered">
+                            <thead>
+                                <th>Name:</th>
+                                <th>Amount:</th>
+                                <th>Price for Each:</th>
+                                <th>Quantity:</th>
+                                <th>Remove?</th>
+                            </thead>
+                            <tbody>
+                                {% if makh %}
+                                    <tr>
+                                        <td>Masala Khakhara</td>
+                                        <td>500g</td>
+                                        <td>$4.00</td>
+                                        <td>
+                                            <input id="makh" value="1" type=number min=1 max=20>
+                                            <button onclick="increment1()">+</button>
+                                            <button onclick="decrement1()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if jmkh %}
+                                    <tr>
+                                        <td>Jeera Mari Khakhara</td>
+                                        <td>500g</td>
+                                        <td>$4.00</td>
+                                        <td>
+                                            <input id=jmkh value="1" type=number min=1 max=20>
+                                            <button onclick="increment2()">+</button>
+                                            <button onclick="decrement2()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if jtkh %}
+                                    <tr>
+                                        <td>Jeera Til Khakhara</td>
+                                        <td>500g</td>
+                                        <td>$4.00</td>
+                                        <td>
+                                            <input id=jtkh value="1" type=number min=1 max=20>
+                                            <button onclick="increment3()">+</button>
+                                            <button onclick="decrement3()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if plkh %}
+                                    <tr>
+                                        <td>Plain Khakhara</td>
+                                        <td>200g</td>
+                                        <td>$1.40</td>
+                                        <td>
+                                            <input id=plkh value="1" type=number min=1 max=20>
+                                            <button onclick="increment4()">+</button>
+                                            <button onclick="decrement4()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if amkh %}
+                                    <tr>
+                                        <td>Achar Masala Khakhara</td>
+                                        <td>200g</td>
+                                        <td>$1.40</td>
+                                        <td>
+                                            <input id=amkh value="1" type=number min=1 max=20>
+                                            <button onclick="increment5()">+</button>
+                                            <button onclick="decrement5()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if mekh %}
+                                    <tr>
+                                        <td>Methi Khakhara</td>
+                                        <td>200g</td>
+                                        <td>$1.40</td>
+                                        <td>
+                                            <input id=mekh value="1" type=number min=1 max=20>
+                                            <button onclick="increment6()">+</button>
+                                            <button onclick="decrement6()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if plpa %}
+                                    <tr>
+                                        <td>Plain Papadi</td>
+                                        <td>9 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=plpa value="1" type=number min=1 max=20>
+                                            <button onclick="increment7()">+</button>
+                                            <button onclick="decrement7()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if mapa %}
+                                    <tr>
+                                        <td>Masala Papadi</td>
+                                        <td>9 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=mapa value="1" type=number min=1 max=20>
+                                            <button onclick="increment8()">+</button>
+                                            <button onclick="decrement8()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if plse %}
+                                    <tr>
+                                        <td>Plain Sev</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=plse value="1" type=number min=1 max=20>
+                                            <button onclick="increment9()">+</button>
+                                            <button onclick="decrement9()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if homi %}
+                                    <tr>
+                                        <td>Hot Mix</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=homi value="1" type=number min=1 max=20>
+                                            <button onclick="increment10()">+</button>
+                                            <button onclick="decrement10()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if kmmi %}
+                                    <tr>
+                                        <td>Khatta Mitha Mix</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=kmmi value="1" type=number min=1 max=20>
+                                            <button onclick="increment11()">+</button>
+                                            <button onclick="decrement11()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if sumi %}
+                                    <tr>
+                                        <td>Surti Mix</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=sumi value="1" type=number min=1 max=20>
+                                            <button onclick="increment12()">+</button>
+                                            <button onclick="decrement12()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if pach %}
+                                    <tr>
+                                        <td>Papad Chavanu</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=pach value="1" type=number min=1 max=20>
+                                            <button onclick="increment13()">+</button>
+                                            <button onclick="decrement13()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if mepa %}
+                                    <tr>
+                                        <td>Methi Para</td>
+                                        <td>11 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=mepa value="1" type=number min=1 max=20>
+                                            <button onclick="increment14()">+</button>
+                                            <button onclick="decrement14()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if stga %}
+                                    <tr>
+                                        <td>Star Ganthia</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=stga value="1" type=number min=1 max=20>
+                                            <button onclick="increment15()">+</button>
+                                            <button onclick="decrement15()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if bhga %}
+                                    <tr>
+                                        <td>Bhavnagri Ganthia</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=bhga value="1" type=number min=1 max=20>
+                                            <button onclick="increment16()">+</button>
+                                            <button onclick="decrement16()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if ph %}
+                                    <tr>
+                                        <td>Phulvadi</td>
+                                        <td>11 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=ph value="1" type=number min=1 max=20>
+                                            <button onclick="increment17()">+</button>
+                                            <button onclick="decrement17()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if bsbh %}
+                                    <tr>
+                                        <td>Bikaneri Sev Bhujia</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=bsbh value="1" type=number min=1 max=20>
+                                            <button onclick="increment18()">+</button>
+                                            <button onclick="decrement18()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% if rase %}
+                                    <tr>
+                                        <td>Ratlami Sev</td>
+                                        <td>12 OZ</td>
+                                        <td>$3.00</td>
+                                        <td>
+                                            <input id=rase value="1" type=number min=1 max=20>
+                                            <button onclick="increment19()">+</button>
+                                            <button onclick="decrement19()">-</button>
+                                        </td>
+                                        <td>
+                                            <button name="remove" class="btn btn-danger m-1">Remove</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>    
+                <br>
+                <br>
+            </div>
+
+            <div class="container text-center">
+                <h4>Total Price: ${{ total_price }}0</h4>
+            </div>
+
+        </div>
+    {% endif %}
+    <div class="content-section container"> 
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Please fill out the form bellow.</legend>
+                <div class="form-group">
+                    {{ form.firstname.label(class="form-control-label") }}
+
+                    {% if form.firstname.errors %}
+                        {{ form.firstname(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.firstname.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.firstname(class="form-control form-control-lg") }}                
+                    {% endif %}
+        
+                </div>
+                <div class="form-group">
+                    {{ form.lastname.label(class="form-control-label") }}
+
+                    {% if form.lastname.errors %}
+                        {{ form.lastname(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.lastname.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.lastname(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}                
+                    {% endif %}
+                    <small class="text-muted">
+                        example@example.com
+                    </small>
+                </div>
+                <div class="form-group">
+                    {{ form.phonenumber.label(class="form-control-label") }}
+
+                    {% if form.phonenumber.errors %}
+                        {{ form.phonenumber(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.phonenumber.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.phonenumber(class="form-control form-control-lg") }}                
+                    {% endif %}
+                    <small class="text-muted">
+                        Please enter a valid phone number.
+                    </small>
+                </div>
+                <div class="form-group">
+                    {{ form.street.label(class="form-control-label") }}
+
+                    {% if form.street.errors %}
+                        {{ form.street(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.street.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.street(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.city.label(class="form-control-label") }}
+
+                    {% if form.city.errors %}
+                        {{ form.city(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.city.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.city(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.state.label(class="form-control-label") }}
+
+                    {% if form.state.errors %}
+                        {{ form.state(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.state.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.state(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.postalzip.label(class="form-control-label") }}
+
+                    {% if form.postalzip.errors %}
+                        {{ form.postalzip(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.postalzip.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.postalzip(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+
+                
+
+                <div class="form-group">
+                    {{ form.ccnum.label(class="form-control-label") }}
+
+                    {% if form.ccnum.errors %}
+                        {{ form.ccnum(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.ccnum.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.ccnum(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.seccode.label(class="form-control-label") }}
+
+                    {% if form.seccode.errors %}
+                        {{ form.seccode(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.seccode.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.seccode(class="form-control form-control-lg") }}                
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.ccexpidate.label(class="form-control-label") }}
+
+                    {% if form.ccexpidate.errors %}
+                        {{ form.ccexpidate(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.ccexpidate.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    
+                    {% else %}
+                        {{ form.ccexpidate(class="form-control form-control-lg") }}                
+                    {% endif %}
+                    <small class="text-muted">
+                        MM/DD/YYYY
+                    </small>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
+            </div>
+        </form>
+    </div>
+    <div class="border-top pt-3 container">
+        <small class="text-muted">
+            Want to go back to the Shopping Page? Click Here:<a class="ml-2" href='{{ url_for("snackPage") }}'>Shopping Page</a>
+        </small>
+    </div>
+
+    <script>
+        function increment1() {
+            document.getElementById("makh").stepUp(1);
+        }
+        function decrement1() {
+            document.getElementById("makh").stepDown(1);
+        }
+
+        function increment2() {
+            document.getElementById("jmkh").stepUp(1);
+        }
+        function decrement2() {
+            document.getElementById("jmkh").stepDown(1);
+        }
+
+        function increment3() {
+            document.getElementById("jtkh").stepUp(1);
+        }
+        function decrement3() {
+            document.getElementById("jtkh").stepDown(1);
+        }
+
+        function increment4() {
+            document.getElementById("plkh").stepUp(1);
+        }
+        function decrement4() {
+            document.getElementById("plkh").stepDown(1);
+        }
+
+        function increment5() {
+            document.getElementById("amkh").stepUp(1);
+        }
+        function decrement5() {
+            document.getElementById("amkh").stepDown(1);
+        }
+
+        function increment6() {
+            document.getElementById("mekh").stepUp(1);
+        }
+        function decrement6() {
+            document.getElementById("mekh").stepDown(1);
+        }
+
+        function increment7() {
+            document.getElementById("plpa").stepUp(1);
+        }
+        function decrement7() {
+            document.getElementById("plpa").stepDown(1);
+        }
+
+        function increment8() {
+            document.getElementById("mapa").stepUp(1);
+        }
+        function decrement8() {
+            document.getElementById("mapa").stepDown(1);
+        }
+        function increment9() {
+            document.getElementById("plse").stepUp(1);
+        }
+        function decrement9() {
+            document.getElementById("plse").stepDown(1);
+        }
+
+        function increment10() {
+            document.getElementById("homi").stepUp(1);
+        }
+        function decrement10() {
+            document.getElementById("homi").stepDown(1);
+        }
+
+        function increment11() {
+            document.getElementById("kmmi").stepUp(1);
+        }
+        function decrement11() {
+            document.getElementById("kmmi").stepDown(1);
+        }
+
+        function increment12() {
+            document.getElementById("sumi").stepUp(1);
+        }
+        function decrement12() {
+            document.getElementById("sumi").stepDown(1);
+        }
+
+        function increment13() {
+            document.getElementById("pach").stepUp(1);
+        }
+        function decrement13() {
+            document.getElementById("pach").stepDown(1);
+        }
+
+        function increment14() {
+            document.getElementById("mepa").stepUp(1);
+        }
+        function decrement14() {
+            document.getElementById("mepa").stepDown(1);
+        }
+
+        function increment15() {
+            document.getElementById("stga").stepUp(1);
+        }
+        function decrement15() {
+            document.getElementById("stga").stepDown(1);
+        }
+
+        function increment16() {
+            document.getElementById("bhga").stepUp(1);
+        }
+        function decrement16() {
+            document.getElementById("bhga").stepDown(1);
+        }
+
+        function increment17() {
+            document.getElementById("ph").stepUp(1);
+        }
+        function decrement17() {
+            document.getElementById("ph").stepDown(1);
+        }
+
+        function increment18() {
+            document.getElementById("bsbh").stepUp(1);
+        }
+        function decrement18() {
+            document.getElementById("bsbh").stepDown(1);
+        }
+
+        function increment19() {
+            document.getElementById("rase").stepUp(1);
+        }
+        function decrement19() {
+            document.getElementById("rase").stepDown(1);
+        }
+    </script>   
+
+{% endblock %}

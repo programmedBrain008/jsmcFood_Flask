@@ -1,0 +1,403 @@
+<header id="mainheader">
+        <div class="container">
+            <div class="fixed-top">
+                <nav id="mainheader">
+                    <ul>
+                        <li><img src="static/images/leftheaderimage2.png" alt="JSMC Logo" width=60 height=60/></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a target="_blank" href="http://jsmconline.org/about_us.php">About Us</a></li>
+                        <!-- <li><a target="_blank" href="http://jsmconline.org/">More Information</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+        </div>  
+    </header>
+
+    <main role="main">
+        <div class="container">
+            <div class="">
+                <br>
+                <h2 class="display-3">Ready to Order?</h2>
+                <br>
+                <h4 class="display-5">Due to COVID-19, returns and exhanges are not allowed.</h3>
+                <h4 class="display-5">The available order pickup times are on Saturdays and Sundays from 10 A.M. to 12 P.M. <i>only</i> </h4>     
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <div class="container">
+            <form style="background-color: #d3d3d3" action="/order" method="POST">
+                <div class="container">
+                    <div class="p-2 pt-md-4 pb-md-3 mx-auto text-center">
+                        <h3 class="display-4">Your Order Information</h3>
+                    </div>
+
+                    <div class=row>
+                        <div class="col-md-8 offset-2">
+                            <br>
+                            <br>
+                            <h4>Full Name</h4>
+                            <br>
+                            <!-- <form style="background-color: #d3d3d3" action="/order" class="" method="POST"> -->
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4 form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name">
+                                </div>
+                                <div class="col-md-6 mb-4 form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name"
+                                    value=""   >
+                                </div>
+                            </div>
+                            <hr>
+                            <br>
+                            <h4>Email</h4>
+                            <br>
+
+                            <div class="mb-3 form-group">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Your Email">
+                                </div>
+
+                            </div>
+
+                            <br>
+                            <hr>
+                            <h4>Phone Number</h4>
+                            <br>
+
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 form-group">
+                                        <label for="phonenumber">Phone Number</label>
+                                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="000-000-0000">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <br>
+                            <hr>
+                            <h4>Address</h4>
+                            <br>
+                            
+                            <div class="mb-3 form-group">
+                                <label for="streetaddress">Street</label>
+                                <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="Your Street Address">
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 form-group">
+                                        <label for="cityaddress">City</label>
+                                        <input type="text" class="form-control" id="cityaddress" name="cityaddress" placeholder="Your City">
+                                    </div>
+                                    <div class="col-md-6 mb-3 form-group">
+                                        <label for="stateaddress">State / Province</label>
+                                        <input type="text" class="form-control" id="stateaddress" name="stateaddress" placeholder="Your State / Province">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <label for="zipaddress">Postal / Zip Code</label>
+                                <input type="text" class="form-control" id="zipaddress" name="zipaddress" placeholder="Your Postal / Zip Code">
+                            </div>
+
+                            <!-- The following code is for the remarks, but I later decided not to use them  -->
+                            <!-- <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="remarks">Remarks</label>
+                                    <textarea class="form-control" id="remarks" rows="3">Type in any remarks here (optional)...</textarea>
+                                </div>
+                            </div> -->
+
+                            <br>
+                            <hr>
+                            <h4>Your Cart:</h4>
+                            <br>
+                            <div class="boxed">
+                                <div class="container">
+                                    This is where the ordered items from the homepage will go using some kind of backend system to place the ordered items
+                                    from the click appear in this box (temporary: just to show)
+                                </div>
+                            </div>
+
+
+                            <br>
+                            <hr>
+                            <h4>Credit Card Details</h4>
+                            <br>
+
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4 form-group">
+                                    <label for="ccnumber">Credit Card Number</label>
+                                    <input type="text" class="form-control" id="ccnumber" name="ccnumber" placeholder="Your Credit Card Number">
+                                </div>
+                                <div class="col-md-6 mb-4 form-group">
+                                    <label for="securitycode">Security Code</label>
+                                    <input type="text" class="form-control" id="securitycode" name="securitycode" placeholder="CVC"
+                                    value=""   >
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <label for="expirationdate">Credit Card Expiration Date</label>
+                                <input type="text" class="form-control" id="expirationdate" name="expirationdate" placeholder="MM/YY">
+                            </div>
+
+                            <!-- <div class="mb-5">
+                                <div class="custom-control custom-checkbox">
+                                    <br>
+                                    <input type="checkbox" class="custom-control-input" id="saveOrderInfo">
+                                    <label class="custom-control-label" for="saveOrderInfo">Remember Order Information</label>
+                                </div>
+                            </div> -->
+
+                            <a type="button" data-toggle="modal" data-target="#addToCartModal" type="submit" class="btn btn-success btn-lg btn-block mb-3">
+                                Place Order Now!
+                            </a>
+                            <!-- <button class="btn btn-success btn-lg btn-block mb-3" data-toggle="modal" data-target="#addToCartModal" type="submit" href="/order">Place Order Now</button> -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="modal fade" id="addToCartModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Notification from the JSMC Food Court</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">    
+                            <span aria-hidden="false">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Order Has Been Placed Successfully! Thank you for shopping!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+
+
+
+
+
+
+
+
+foodCourtItems = [
+    {
+        "name": "Masala Khakhara",
+        "price": "$4.00",
+        "amount": "500g",
+        "ordered": True
+    }, 
+    {
+        "name": "Jeera Mari Khakhara",
+        "price": "$4.00",
+        "amount": "500g",
+        "ordered": True
+    },
+    {
+        "name": "Jeera Til Khakhara",
+        "price": "$4.00",
+        "amount": "500g",
+        "ordered": True
+    },
+    {
+        "name": "Plain Khakhara",
+        "price": "$1.40",
+        "amount": "200g",
+        "ordered": True
+    },
+    {
+        "name": "Achar Masala Khakhara",
+        "price": "$1.40",
+        "amount": "200g",
+        "ordered": True
+    },
+    {
+        "name": "Methi Khakhara",
+        "price": "$1.40",
+        "amount": "200g",
+        "ordered": True
+    },
+    {
+        "name": "Plain Papadi",
+        "price": "$3.00",
+        "amount": "9 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Masala Papadi",
+        "price": "$3.00",
+        "amount": "9 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Plain Sev",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Hot Mix",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Khatta Mitha Mix",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Surti Mix",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Papad Chavanu",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Methi Para",
+        "price": "$3.00",
+        "amount": "11 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Star Ganthia",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Bhavnagri Ganthia",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Phulvadi",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Bikaneri Sev Bhujia",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    },
+    {
+        "name": "Ratlami Sev",
+        "price": "$3.00",
+        "amount": "12 OZ",
+        "ordered": True
+    }
+]
+
+, makh=makh, jmkh=jmkh, jtkh=jtkh, plkh=plkh, amkh=amkh, mekh=mekh, plpa=plpa, mapa=mapa, plse=plse, homi=homi, kmmi=kmmi, sumi=sumi, pach=pach, mepa=mepa, stga=stga, bhga=bhga, ph=ph, bsbh=bsbh, rase=rase
+
+
+function increment1() {
+            document.getElementById('makh').stepUp();
+
+        function increment2(){
+            document.getElementById('jmkh').stepUp();
+        }
+        function increment3(){
+            document.getElementById('jtkh').stepUp();
+        }
+        function increment4(){
+            document.getElementById('plkh').stepUp();
+        }
+        function increment5(){
+            document.getElementById('amkh').stepUp();
+        }
+        function increment6(){
+            document.getElementById('mekh').stepUp();
+        }
+        function increment7(){
+            document.getElementById('plpa').stepUp();
+        }
+        function increment8(){
+            document.getElementById('mapa').stepUp();
+        }
+        function increment9(){
+            document.getElementById('plse').stepUp();
+        }
+        function increment10(){
+            document.getElementById('homi').stepUp();
+        }
+        function increment11(){
+            document.getElementById('kmmi').stepUp();
+        }
+        function increment12(){
+            document.getElementById('sumi').stepUp();
+        }
+        function increment13(){
+            document.getElementById('pach').stepUp();
+        }
+        function increment14(){
+            document.getElementById('mepa').stepUp();
+        }
+        function increment15(){
+            document.getElementById('stga').stepUp();
+        }
+        function increment16(){
+            document.getElementById('bhga').stepUp();
+        }
+        function increment17(){
+            document.getElementById('ph').stepUp();
+        }
+        function increment18(){
+            document.getElementById('bsbh').stepUp();
+        }
+        function increment19(){
+            document.getElementById('rase').stepUp();
+        }
+        
+        function decrement() {
+            document.getElementById('makh').stepDown();
+            document.getElementById('jmkh').stepDown();
+            document.getElementById('jtkh').stepDown();
+            document.getElementById('plkh').stepDown();
+            document.getElementById('amkh').stepDown();
+            document.getElementById('mekh').stepDown();
+            document.getElementById('plpa').stepDown();
+            document.getElementById('mapa').stepDown();
+            document.getElementById('plse').stepDown();
+            document.getElementById('homi').stepDown();
+            document.getElementById('kmmi').stepDown();
+            document.getElementById('sumi').stepDown();
+            document.getElementById('pach').stepDown();
+            document.getElementById('mepa').stepDown();
+            document.getElementById('stga').stepDown();
+            document.getElementById('bhga').stepDown();
+            document.getElementById('ph').stepDown();
+            document.getElementById('bsbh').stepDown();
+            document.getElementById('rase').stepDown();
+        }
