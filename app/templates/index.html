@@ -1,418 +1,488 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Home</title> 
+<title>Home | JSMC Food Court</title> 
 {% endblock %}
 
 {% block body %} 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="container">
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <header id="mainheader">
-        <div class="container">
-            <div class="fixed-top">
-                <nav id="mainheader">
-                    <ul>
-                        <li><img src="static/images/leftheaderimage2.png" alt="JSMC Logo" width=60 height=60/></li>
-                        <li><a href="/">Home</a></li>
-                        <li><a target="_blank" href="http://jsmconline.org/about_us.php">About Us</a></li>
-                        <li><a href="/order">Order</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>  
-    </header>
-    <main role="main">
-        <!-- <div class="jumbotron jumbrotron-dry-snacks-detail-page">
-            <h1 class="display-3 text-white">Jain Society of Metropolitan Chicago</h1>
-            <h3 class="display-5 text-white">Hot Snacks</h3>
-        </div> -->
-        <div class="container-fluid">
 
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <main id="main">
-                    <article class="text-center">
-                        <header>
-                            <h1 style="font-size: 50px; color: #064A60;">Jain Society of Metropolitan Chicago</h1>
-                            <h2 style="font-size: 35px; color: #064A60;">Snacks</h1>
-                        </header>
-                        <div>
-                            <p class="text-center my-4">
-                                We are happy to relaunch the JSMC Food Court online! Varieties of Jain Khakharas and other Jain dry snacks from India.
-                                <br>
-                                Order these tasty dishes for a resonable price for our members!
-                                <br>
-                                <br>
-                                <b>Due to COVID-19, we are not allowing any returns or exhanges.</b>
-                                <br>
-                                <br>
-                                <b>Order Pick Up Times:</b>
-                                <br>
-                                Saturday and Sunday from 10 AM to 12 PM only
-                                <br>
-                                <br>
-                                <b>Browse Through The Jain Khakharas and Dry Snacks Bellow!</b>
-                                <br>
-
-                                <a type="button" href="/order" class="btn btn-info m-3">
-                                    Ready to Order?
-                                    <br>
-                                    Once items have been added to cart, click here!
-                                </a>
-                                
-                            </p>
-                        </div>
-                        <br>
-                        <div class="text-center">
-                            <div class="table-responsive p=4">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <th>Name:</th>
-                                        <th>Amount:</th>
-                                        <th>Price:</th>
-                                        <th>Image:</th>
-                                        <!-- <th>Quantity:</th> -->
-                                        <th>Add to Cart:</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Masala Khakhara</td>
-                                            <td>500g</td>
-                                            <td>$4.00</td>
-                                            <td><img src="static/images/masalakhakhra.jpg" alt="Image of Masala Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="masalakhakhara" value="makh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jeera Mari Khakhara</td>
-                                            <td>500g</td>
-                                            <td>$4.00</td>
-                                            <td><img src="static/images/jeeramarikhakhra.jpg" alt="Image of Jeera Mari Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="jeeramarikhakhara" value="jmkh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jeera Til Khakhara</td>
-                                            <td>500g</td>
-                                            <td>$4.00</td>
-                                            <td><img src="static/images/jeeratilkhakhra.jpg" alt="Image of Jeera Til Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="jeeratilkhakhara" value="jtkh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Plain Khakhara</td>
-                                            <td>200g</td>
-                                            <td>$1.40</td>
-                                            <td><img src="static/images/sadakhakhra.jpg" alt="Image of Plain Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="plainkhakhara" value="plkh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Achar Masala Khakhara</td>
-                                            <td>200g</td>
-                                            <td>$1.40</td>
-                                            <td><img src="static/images/acharmasalakhakhra.jpg" alt="Image of Achar Masala Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="acharmasalakhakhara" value="amkh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Methi Khakhara</td>
-                                            <td>200g</td>
-                                            <td>$1.40</td>
-                                            <td><img src="static/images/methikhakhra.jpg" alt="Image of Methi Khakhara" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="methikhakhara" value="mekh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Plain Papadi</td>
-                                            <td>9 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/plainpapadi.jpg" alt="Image of Plain Papadi" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="plainpapadi" value="plpa" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Masala Papadi</td>
-                                            <td>9 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/masalapapadi.ashx" alt="Image of Masala Papadi" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="masalapapadi" value="mapa" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Plain Sev</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/plainsev.jpg" alt="Image of Plain Sev" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="plainsev" value="plse" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hot Mix</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/hotmix.jpg" alt="Image of Hot Mix" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="hotmix" value="homi" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Khatta Mitha Mix</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/khattamithamix.jpeg" alt="Image of Khatta Mitha Mix" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="khattamithamix" value="kmmi" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surti Mix</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/surtimix.jpg" alt="Image of Surti Mix" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="surtimix" value="sumi" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Papad Chavanu</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/papadchavanu.jpg" alt="Image of Papad Chavanu" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="papadchavanu" value="pach" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Methi Para</td>
-                                            <td>11 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/methipara.jpg" alt="Image of Methi Para" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="methipara" value="mepa" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Star Ganhtia</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/stargathia.jpg" alt="Image of Star Ganthia" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="starganthia" value="stga" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bhavnagri Ganhtia</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/bhavgathiya.png" alt="Image of Bhavnagri Ganthia" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="bhavnagriganthia" value="bhga" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phulvadi</td>
-                                            <td>11 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/phulvadi.jpg" alt="Image of Phulvadi" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="phulvadi" value="ph" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bikaneri Sev Bhujia</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/bikasevbhuji.jfif" alt="Image of Bikaneri Sev Bhujia" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="bikanerisevbhujia" value="bsbh" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ratlami Sev</td>
-                                            <td>12 OZ</td>
-                                            <td>$3.00</td>
-                                            <td><img src="static/images/ratlamisev.jpg" alt="Image of Bikaneri Sev Bhujia" width=100 height=75></td>
-                                            <!-- <td>
-                                                <div class="quantity buttons_added">
-                                                    <input type="number" id="quantity" name="tentacles" min="10" max="100">
-                                                </div>
-                                            </td> -->
-                                            <td>
-                                                <form method="POST" action="/" enctype="multipart/form-data">
-                                                    <button name="ratlamisev" value="rase" class="btn btn-success m-3">Add to Cart</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </article>
-                </main>
-            </div>
-        </div>
-    </main>
-    <div class="modal fade" id="addToCartModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Notification from the JSMC Food Court</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">    
-                        <span aria-hidden="false">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Item Successfully Added to Cart!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                <img src="static/images/mainheaderimage.jpg" alt="JSMC Logo" width=60 height=60 class="mr-3 ml=0">
+                <a class="navbar-brand" href="/"><b>Jain Society of Metropolitan Chicago</b></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://www.jsmconline.org/about_us.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Sign Up</a>
+                    </li>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
+
+    <main role="main">
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Specials</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ lunchSpecial[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ lunchSpecial[1] }}</td>
+                        <td class="text-center"><p>Includes:<br>Basundi,<br> Bhaji na Bhajiya,<br> Bhinda-Capsicum-Tomato-Shaak,<br> Kala Chana,<br> Puri, Jeera Rice, Dal Fry</p><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
+                        <td class="text-center">{{ lunchSpecial[3] }}</td>
+                        <td class="text-center">
+                            <form method="POST" action="/" enctype="multipart/form-data">
+                                <button type="submit" name="lunchSpecial" value="lunchSpecial" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ basundi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ basundi[1] }}</td>
+                        <td class="text-center">{{ basundi[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
+                        <td class="text-center">{{ basundi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" enctype="multipart/form-data">
+                                <button type="submit" name="basundi" value="basundi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bhajinabhajiya[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bhajinabhajiya[1] }}</td>
+                        <td class="text-center">{{ bhajinabhajiya[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</p></td>
+                        <td class="text-center">{{ bhajinabhajiya[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bhajinabhajiya" value="bhajinabhajiya" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Sweets</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ sh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sh[1] }}</td>
+                        <td class="text-center">{{ sh[2] }}</td>
+                        <td class="text-center">{{ sh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sh" value="sh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ guja[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ guja[1] }}</td>
+                        <td class="text-center">{{ guja[2] }}</td>
+                        <td class="text-center">{{ guja[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="guja" value="guja" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ragu[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ragu[1] }}</td>
+                        <td class="text-center">{{ ragu[2] }}</td>
+                        <td class="text-center">{{ ragu[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ragu" value="ragu" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ gcla[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ gcla[1] }}</td>
+                        <td class="text-center">{{ gcla[2] }}</td>
+                        <td class="text-center">{{ gcla[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="gcla" value="gcla" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ma[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ma[1] }}</td>
+                        <td class="text-center">{{ ma[2] }}</td>
+                        <td class="text-center">{{ ma[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ma" value="ma" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Khakharas</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ jekh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ jekh[1] }}</td>
+                        <td class="text-center">{{ jekh[2] }}</td>
+                        <td class="text-center">{{ jekh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="jekh" value="jekh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ kmkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ kmkh[1] }}</td>
+                        <td class="text-center">{{ kmkh[2] }}</td>
+                        <td class="text-center">{{ kmkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="kmkh" value="kmkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ makh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ makh[1] }}</td>
+                        <td class="text-center">{{ makh[2] }}</td>
+                        <td class="text-center">{{ makh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="makh" value="makh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ jmkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ jmkh[1] }}</td>
+                        <td class="text-center">{{ jmkh[2] }}</td>
+                        <td class="text-center">{{ jmkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="jmkh" value="jmkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ plkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plkh[1] }}</td>
+                        <td class="text-center">{{ plkh[2] }}</td>
+                        <td class="text-center">{{ plkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plkh" value="plkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ amkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ amkh[1] }}</td>
+                        <td class="text-center">{{ amkh[2] }}</td>
+                        <td class="text-center">{{ amkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="amkh" value="amkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mekh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mekh[1] }}</td>
+                        <td class="text-center">{{ mekh[2] }}</td>
+                        <td class="text-center">{{ mekh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mekh" value="mekh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Dry Snacks</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ plpa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plpa[1] }}</td>
+                        <td class="text-center">{{ plpa[2] }}</td>
+                        <td class="text-center">{{ plpa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plpa" value="plpa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mapa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mapa[1] }}</td>
+                        <td class="text-center">{{ mapa[2] }}</td>
+                        <td class="text-center">{{ mapa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mapa" value="mapa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ plse[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plse[1] }}</td>
+                        <td class="text-center">{{ plse[2] }}</td>
+                        <td class="text-center">{{ plse[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plse" value="plse" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ homi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ homi[1] }}</td>
+                        <td class="text-center">{{ homi[2] }}</td>
+                        <td class="text-center">{{ homi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="homi" value="homi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ kmmi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ kmmi[1] }}</td>
+                        <td class="text-center">{{ kmmi[2] }}</td>
+                        <td class="text-center">{{ kmmi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="kmmi" value="kmmi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ sumi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sumi[1] }}</td>
+                        <td class="text-center">{{ sumi[2] }}</td>
+                        <td class="text-center">{{ sumi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sumi" value="sumi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ pach[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ pach[1] }}</td>
+                        <td class="text-center">{{ pach[2] }}</td>
+                        <td class="text-center">{{ pach[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="pach" value="pach" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mepa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mepa[1] }}</td>
+                        <td class="text-center">{{ mepa[2] }}</td>
+                        <td class="text-center">{{ mepa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mepa" value="mepa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ stga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ stga[1] }}</td>
+                        <td class="text-center">{{ stga[2] }}</td>
+                        <td class="text-center">{{ stga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="stga" value="stga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bhga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bhga[1] }}</td>
+                        <td class="text-center">{{ bhga[2] }}</td>
+                        <td class="text-center">{{ bhga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bhga" value="bhga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ph[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ph[1] }}</td>
+                        <td class="text-center">{{ ph[2] }}</td>
+                        <td class="text-center">{{ ph[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ph" value="ph" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bsbh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bsbh[1] }}</td>
+                        <td class="text-center">{{ bsbh[2] }}</td>
+                        <td class="text-center">{{ bsbh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bsbh" value="bsbh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ rase[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ rase[1] }}</td>
+                        <td class="text-center">{{ rase[2] }}</td>
+                        <td class="text-center">{{ rase[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="rase" value="rase" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ rach[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ rach[1] }}</td>
+                        <td class="text-center">{{ rach[2] }}</td>
+                        <td class="text-center">{{ rach[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="rach" value="rach" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ sspa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sspa[1] }}</td>
+                        <td class="text-center">{{ sspa[2] }}</td>
+                        <td class="text-center">{{ sspa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sspa" value="sspa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ drka[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ drka[1] }}</td>
+                        <td class="text-center">{{ drka[2] }}</td>
+                        <td class="text-center">{{ drka[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="drka" value="drka" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bh[1] }}</td>
+                        <td class="text-center">{{ bh[2] }}</td>
+                        <td class="text-center">{{ bh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bh" value="bh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ vaga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ vaga[1] }}</td>
+                        <td class="text-center">{{ vaga[2] }}</td>
+                        <td class="text-center">{{ vaga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="vaga" value="vaga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+    </main>
 
 {% endblock %}

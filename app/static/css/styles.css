@@ -1,168 +1,50 @@
 body {
-
+    background: bisque;
     margin: auto;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: 'Lato', sans-serif;
     margin-left: auto;
     margin-right: auto;
-    background-color: #9AD3FE;
-    background-image: url("/images/bgimage.png");
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
-#rcorners1 {
-    border-radius: 25px;
-    background: #73AD21;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
-}
-  
-  #rcorners2 {
-    border-radius: 25px;
-    border: 2px solid #73AD21;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
-}
-  
-  #rcorners3 {
-    border-radius: 25px;
-    background: url(paper.gif);
-    background-position: left top;
-    background-repeat: repeat;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
-}
-
-.jumbrotron-dry-snacks-detail-page {
-    background: url(/images/jumbotronimage3.png);
-    background-repeat: no-repeat;
-}
-  
-
-.jumbotron {
-    height: 35vh;
-    background-size: 100% 100%;
-}
-
-.jumbotron-order-form {
-    background: url(/images/orderformbgpattern.png);
-}
-
-#mainheader {
-    background-color: #fffee0;
-}
-
-nav {
-    height: 60px;
-    width: auto;
-    margin: 0px auto 20px;
-}
-
-.quantity {
-    display: inline-block; }
-   
-   .quantity .input-text.qty {
-    width: 35px;
-    height: 39px;
-    padding: 0 5px;
-    text-align: center;
-    background-color: transparent;
-    border: 1px solid #efefef;
-   }
-   
-   .quantity.buttons_added {
-    text-align: left;
-    position: relative;
-    white-space: nowrap;
-    vertical-align: top; }
-   
-   .quantity.buttons_added input {
-    display: inline-block;
-    margin: 0;
-    vertical-align: top;
-    box-shadow: none;
-}
-   
-.boxed {
-    border: 1px solid blue;
-    height: 600px;
-    width: 800px;
-}
-
-   .quantity.buttons_added .minus,
-   .quantity.buttons_added .plus {
-    padding: 7px 10px 8px;
-    height: 41px;
-    background-color: #ffffff;
-    border: 1px solid #efefef;
-    cursor:pointer;}
-   
-   .quantity.buttons_added .minus {
-    border-right: 0; }
-   
-   .quantity.buttons_added .plus {
-    border-left: 0; }
-   
-   .quantity.buttons_added .minus:hover,
-   .quantity.buttons_added .plus:hover {
-    background: #eeeeee; }
-   
-   .quantity input::-webkit-outer-spin-button,
-   .quantity input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin: 0; }
-    
-    .quantity.buttons_added .minus:focus,
-   .quantity.buttons_added .plus:focus {
-    outline: none; }
-   
-   
-
-/* #leftmenu {
-    float: left;
-    width: 12.5%;
-    margin-bottom: 20px;
-}
-.searchbox {
-    padding: 5px;
-    margin: 10px 10px;
-    width: 200px;
-} */
 
 #main {
-    float: right;
     width: 100%;
     margin-bottom: 20px;
 }
 
-footer {
-    clear: both;
-    width: 100%;
-}
 table, td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 5px
 }
 
-nav>ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
 
-nav>ul>li {
-    float: left;
-}
-
-nav>ul>li a {
-    display: block;
-    color: black;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
     text-align: center;
-    padding: 16px;
-    text-decoration: none;
-    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
 }

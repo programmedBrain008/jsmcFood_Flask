@@ -1,5 +1,4 @@
 from app import db
-from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,3 +18,13 @@ class User(db.Model):
 
     def __repr__(self):
         return f"User('{self.id}', '{self.firstname}', '{self.lastname}', '{self.email}', '{self.phonenumber}', '{self.street}', '{self.city}', '{self.state}', '{self.postalzip}', '{self.ccnum}', '{self.seccode}', '{self.ccexpidate}')"
+
+
+class ProductRecord(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    priceForEach = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f"Product has been added to cart: '{self.name}'"

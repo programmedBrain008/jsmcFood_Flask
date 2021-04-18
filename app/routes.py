@@ -1,131 +1,62 @@
 from flask import url_for, render_template, request, redirect, flash, session
 from app import app, db, bcrypt
 from app.forms import orderForm
-from app.models import db, User
-from sqlalchemy.exc import IntegrityError
-from datetime import datetime
+from app.models import db, User, ProductRecord
+from app.productInfo import jekh, kmkh, makh, jmkh, plkh, amkh, mekh, plpa, mapa, plse, homi, kmmi, sumi, pach, mepa, stga, bhga, ph, bsbh, rase, rach, sspa, drka, bh, vaga, sh, guja, ragu, gcla, ma, lunchSpecial, basundi, bhajinabhajiya
 
-makh = False
-jmkh = False
-jtkh = False
-plkh = False
-amkh = False
-mekh = False
-plpa = False
-mapa = False
-plse = False
-homi = False
-kmmi = False
-sumi = False
-pach = False
-mepa = False
-stga = False
-bhga = False
-ph = False
-bsbh = False
-rase = False
-total_price = 0.00
 
 @app.route("/", methods=["GET", "POST"])
 def snackPage():
+
+    def addToCart(getMethodName, amount, priceForEach):
+        if request.form.get(str(getMethodName)):
+            print(getMethodName + " has been added to cart database.")
+            product = ProductRecord(name=getMethodName, amount=amount, priceForEach=priceForEach)
+            
+            db.session.add(product)
+            db.session.commit()
+            flash(f"{getMethodName} has been added to your cart!", "success")
+            return redirect(url_for("snackPage"))
+
     if request.method == "POST":
-        global total_price
-        if request.form.get("masalakhakhara") == "makh":
-            global makh
-            makh = True
-            total_price = total_price + 4.00
+        addToCart("lunchSpecial", "Includes: Basundi, Bhaji na Bhajiya, Bhinda-Capsicum-Tomato-Shaak, Kala Chana, Puri, Jeera Rice, Dal Fry", 10)
+        addToCart("basundi", "1 LB", 6.00)
+        addToCart("bhajinabhajiya", "8pcs", 4.00)
+        addToCart("sh", "1 LB", 6.00)
+        addToCart("guja", "1 LB", 6.00)
+        addToCart("ragu", "8pcs", 4.00)
+        addToCart("gcla", "1 LB", 6.00)
+        addToCart("ma", "14 OZ", 6.00)
+        addToCart("jekh", "500g", 4.00)
+        addToCart("kmkh", "500g", 4.00)
+        addToCart("makh", "200g", 1.50)
+        addToCart("jmkh", "200g", 1.50)
+        addToCart("plkh", "200g", 1.50)
+        addToCart("amkh", "200g", 1.50)
+        addToCart("mekh", "200g", 1.50)
+        addToCart("plpa", "9 OZ", 3)
+        addToCart("mapa", "9 OZ", 3)
+        addToCart("plse", "12 OZ", 3)
+        addToCart("homi", "12 OZ", 3)
+        addToCart("kmmi", "12 OZ", 3)
+        addToCart("sumi", "12 OZ", 3)
+        addToCart("pach", "12 OZ", 3)
+        addToCart("mepa", "12 OZ", 3)
+        addToCart("stga", "11 OZ", 3)
+        addToCart("bhga", "12 OZ", 3)
+        addToCart("ph", "11 OZ", 3)
+        addToCart("bshb", "12 OZ", 3)
+        addToCart("rase", "12 OZ", 3)
+        addToCart("rach", "12 OZ", 3)
+        addToCart("sspa", "11 OZ", 3)
+        addToCart("drka", "11 OZ", 3)
+        addToCart("bh", "11 OZ", 3)
+        addToCart("vaga", "12 OZ", 3)
 
-        if request.form.get("jeeramarikhakhara") == "jmkh":
-            global jmkh
-            jmkh = True
-            total_price = total_price + 4.00
-
-        if request.form.get("jeeratilkhakhara") == "jtkh":
-            global jtkh
-            jtkh = True
-            total_price = total_price + 4.00
-
-        if request.form.get("plainkhakhara") == "plkh":
-            global plkh
-            plkh = True
-            total_price = total_price + 1.40
-
-        if request.form.get("acharmasalakhakhara") == "amkh":
-            global amkh
-            amkh = True
-            total_price = total_price + 1.40
-
-        if request.form.get("methikhakhara") == "mekh":
-            global mekh
-            mekh = True
-            total_price = total_price + 1.40
-
-        if request.form.get("plainpapadi") == "plpa":
-            global plpa
-            plpa = True
-            total_price = total_price + 3.00
-
-        if request.form.get("masalapapadi") == "mapa":
-            global mapa
-            mapa = True
-            total_price = total_price + 3.00
-
-        if request.form.get("plainsev") == "plse":
-            global plse
-            plse = True
-            total_price = total_price + 3.00
-
-        if request.form.get("hotmix") == "homi":
-            global homi
-            homi = True
-            total_price = total_price + 3.00
-
-        if request.form.get("khattamithamix") == "kmmi":
-            global kmmi
-            kmmi = True
-            total_price = total_price + 3.00
-
-        if request.form.get("surtimix") == "sumi":
-            global sumi
-            sumi = True
-            total_price = total_price + 3.00
-
-        if request.form.get("papadchavanu") == "pach":
-            global pach
-            pach = True
-            total_price = total_price + 3.00
-
-        if request.form.get("methipara") == "mepa":
-            global mepa
-            mepa = True
-            total_price = total_price + 3.00
-
-        if request.form.get("starganthia") == "stga":
-            global stga
-            stga = True
-            total_price = total_price + 3.00
-
-        if request.form.get("bhavnagriganthia") == "bhga":
-            global bhga
-            bhga = True
-            total_price = total_price + 3.00
-
-        if request.form.get("phulvadi") == "ph":
-            global ph
-            ph = True
-            total_price = total_price + 3.00
-
-        if request.form.get("bikanerisevbhujia") == "bsbh":
-            global bsbh
-            bsbh = True
-            total_price = total_price + 3.00
-
-        if request.form.get("ratlamisev") == "rase":
-            global rase
-            rase = True
-            total_price = total_price + 3.00
-
-    return render_template("index.html")
+    return render_template("index.html", jekh=jekh, kmkh=kmkh, makh=makh, jmkh=jmkh, plkh=plkh, amkh=amkh, mekh=mekh, 
+    plpa=plpa, mapa=mapa, plse=plse, homi=homi, kmmi=kmmi, sumi=sumi, pach=pach, mepa=mepa, stga=stga, bhga=bhga,
+    ph=ph, bsbh=bsbh, rase=rase, rach=rach, sspa=sspa, drka=drka, bh=bh, vaga=vaga, sh=sh, guja=guja, ragu=ragu,
+    gcla=gcla, ma=ma, lunchSpecial=lunchSpecial, basundi=basundi, bhajinabhajiya=bhajinabhajiya)
 
 @app.route("/order", methods=["GET", "POST"])
 def order():
@@ -152,4 +83,4 @@ def order():
         flash(f"Order placed successfully for: {REF_firstname} {REF_lastname}", "success")
         return redirect(url_for("snackPage"))
 
-    return render_template("order_form.html", form=form, makh=makh, jmkh=jmkh, jtkh=jtkh, plkh=plkh, amkh=amkh, mekh=mekh, plpa=plpa, mapa=mapa, plse=plse, homi=homi, kmmi=kmmi, sumi=sumi, pach=pach, mepa=mepa, stga=stga, bhga=bhga, ph=ph, bsbh=bsbh, rase=rase, total_price=total_price)
+    return render_template("order_form.html", form=form)
