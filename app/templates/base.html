@@ -4,11 +4,11 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <link rel="stylesheet" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/bootstrap.css">
-    <link rel="stylesheet" href="static/js/home.js">
-    <link rel="stylesheet" href="static/js/script.js">
-    <link rel="stylesheet" href="static/js/bootstrap.js">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/bootstrap.js') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/home.js') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/script.js') }}">
     {% block head %} {% endblock %}
 </head>
 <body>
