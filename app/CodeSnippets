@@ -1305,3 +1305,710 @@ class orderForm(FlaskForm):
     ccexpidate = StringField("Credit Card Expiration Date", validators=[DataRequired()])
        
     submit = SubmitField("Place Order Now!")
+
+
+
+
+, jekh=jekh, kmkh=kmkh, makh=makh, jmkh=jmkh, plkh=plkh, amkh=amkh, mekh=mekh, 
+    plpa=plpa, mapa=mapa, plse=plse, homi=homi, kmmi=kmmi, sumi=sumi, pach=pach, mepa=mepa, stga=stga, bhga=bhga,
+    ph=ph, bsbh=bsbh, rase=rase, rach=rach, sspa=sspa, drka=drka, bh=bh, vaga=vaga, sh=sh, guja=guja, ragu=ragu,
+    gcla=gcla, ma=ma, lunchSpecial=lunchSpecial, basundi=basundi, bhajinabhajiya=bhajinabhajiya
+
+
+from app import db
+from app.models import User, Cart, Product
+
+# Khakhara:
+jekh = Product(image_file="static/images/jeerakhakhara.png", name="Jeera Khakahara", )
+kmkh =
+makh =
+jmkh =
+plkh =
+amkh =
+mekh =
+
+# Dry Snacks:
+plpa =
+mapa =
+plse =
+homi =
+kmmi =
+sumi =
+pach =
+mepa =
+stga =
+bhga =
+ph =
+bsbh = 
+rase = 
+rach = 
+sspa = 
+drka = 
+bh = 
+vaga = 
+
+# Sweets:
+sh = 
+guja = 
+ragu =
+gcla =
+ma =
+
+# Specials:
+lunchSpecial = 
+basundi =
+bhajinabhajiya =
+
+from app.models import db, User, Cart, Product
+
+# Khakhara:
+jekh = Product(image_file=url_for('static', filename='jeerakhakhara.png'), name="", amount="", priceForEach="", quantity="")
+kmkh = Product(image_file=url_for('static', filename='kothmirmarchakhakhara.jpg'), name="", amount="", priceForEach="", quantity="")
+makh = Product(image_file=url_for('static', filename='masalakhakhra.jpg'), name="", amount="", priceForEach="", quantity="")
+jmkh = Product(image_file=url_for('static', filename='jeeramarikhakhra.jpg'), name="", amount="", priceForEach="", quantity="")
+plkh = Product(image_file=url_for('static', filename='sadakhakhra.jpg'), name="", amount="", priceForEach="", quantity="")
+amkh = Product(image_file=url_for('static', filename='acharmasalakhakhra.jpg'), name="", amount="", priceForEach="", quantity="")
+mekh = Product(image_file=url_for('static', filename='methikhakhra.jpg'), name="", amount="", priceForEach="", quantity="")
+
+# Dry Snacks:
+plpa = Product(image_file=url_for('static', filename='plainpapadi.jpg'), name="", amount="", priceForEach="", quantity="")
+mapa = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+plse = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+homi = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+kmmi = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+sumi = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+pach = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+mepa = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+stga = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+bhga = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+ph = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+bsbh = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+rase = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+rach = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+sspa = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+drka = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+bh = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+vaga = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+
+# Sweets:
+sh = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+guja = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+ragu = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+gcla = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+ma = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+
+# Specials:
+lunchSpecial = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+basundi = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+bhajinabhajiya = Product(image_file=url_for('static', filename='profile_pics/'), name="", amount="", priceForEach="", quantity="")
+
+
+
+   <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Specials</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ lunchSpecial[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ lunchSpecial[1] }}</td>
+                        <td class="text-center"><p>Includes:<br>Basundi,<br> Bhaji na Bhajiya,<br> Bhinda-Capsicum-Tomato-Shaak,<br> Kala Chana,<br> Puri, Jeera Rice, Dal Fry</p><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
+                        <td class="text-center">{{ lunchSpecial[3] }}</td>
+                        <td class="text-center">
+                            <form method="POST" action="/" enctype="multipart/form-data">
+                                <button type="submit" name="lunchSpecial" value="lunchSpecial" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ basundi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ basundi[1] }}</td>
+                        <td class="text-center">{{ basundi[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
+                        <td class="text-center">{{ basundi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" enctype="multipart/form-data">
+                                <button type="submit" name="basundi" value="basundi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bhajinabhajiya[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bhajinabhajiya[1] }}</td>
+                        <td class="text-center">{{ bhajinabhajiya[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</p></td>
+                        <td class="text-center">{{ bhajinabhajiya[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bhajinabhajiya" value="bhajinabhajiya" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Sweets</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ sh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sh[1] }}</td>
+                        <td class="text-center">{{ sh[2] }}</td>
+                        <td class="text-center">{{ sh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sh" value="sh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ guja[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ guja[1] }}</td>
+                        <td class="text-center">{{ guja[2] }}</td>
+                        <td class="text-center">{{ guja[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="guja" value="guja" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ragu[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ragu[1] }}</td>
+                        <td class="text-center">{{ ragu[2] }}</td>
+                        <td class="text-center">{{ ragu[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ragu" value="ragu" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ gcla[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ gcla[1] }}</td>
+                        <td class="text-center">{{ gcla[2] }}</td>
+                        <td class="text-center">{{ gcla[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="gcla" value="gcla" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ma[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ma[1] }}</td>
+                        <td class="text-center">{{ ma[2] }}</td>
+                        <td class="text-center">{{ ma[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ma" value="ma" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Khakharas</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ jekh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ jekh[1] }}</td>
+                        <td class="text-center">{{ jekh[2] }}</td>
+                        <td class="text-center">{{ jekh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="jekh" value="jekh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ kmkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ kmkh[1] }}</td>
+                        <td class="text-center">{{ kmkh[2] }}</td>
+                        <td class="text-center">{{ kmkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="kmkh" value="kmkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ makh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ makh[1] }}</td>
+                        <td class="text-center">{{ makh[2] }}</td>
+                        <td class="text-center">{{ makh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="makh" value="makh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ jmkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ jmkh[1] }}</td>
+                        <td class="text-center">{{ jmkh[2] }}</td>
+                        <td class="text-center">{{ jmkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="jmkh" value="jmkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ plkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plkh[1] }}</td>
+                        <td class="text-center">{{ plkh[2] }}</td>
+                        <td class="text-center">{{ plkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plkh" value="plkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ amkh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ amkh[1] }}</td>
+                        <td class="text-center">{{ amkh[2] }}</td>
+                        <td class="text-center">{{ amkh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="amkh" value="amkh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mekh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mekh[1] }}</td>
+                        <td class="text-center">{{ mekh[2] }}</td>
+                        <td class="text-center">{{ mekh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mekh" value="mekh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+
+        <div class="container-fluid mt-3">
+            <br>
+            <legend><b>Dry Snacks</b></legend>
+            <hr>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Image</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Add To Cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><img src="{{ plpa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plpa[1] }}</td>
+                        <td class="text-center">{{ plpa[2] }}</td>
+                        <td class="text-center">{{ plpa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plpa" value="plpa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mapa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mapa[1] }}</td>
+                        <td class="text-center">{{ mapa[2] }}</td>
+                        <td class="text-center">{{ mapa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mapa" value="mapa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ plse[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ plse[1] }}</td>
+                        <td class="text-center">{{ plse[2] }}</td>
+                        <td class="text-center">{{ plse[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="plse" value="plse" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ homi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ homi[1] }}</td>
+                        <td class="text-center">{{ homi[2] }}</td>
+                        <td class="text-center">{{ homi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="homi" value="homi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ kmmi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ kmmi[1] }}</td>
+                        <td class="text-center">{{ kmmi[2] }}</td>
+                        <td class="text-center">{{ kmmi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="kmmi" value="kmmi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ sumi[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sumi[1] }}</td>
+                        <td class="text-center">{{ sumi[2] }}</td>
+                        <td class="text-center">{{ sumi[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sumi" value="sumi" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ pach[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ pach[1] }}</td>
+                        <td class="text-center">{{ pach[2] }}</td>
+                        <td class="text-center">{{ pach[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="pach" value="pach" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ mepa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ mepa[1] }}</td>
+                        <td class="text-center">{{ mepa[2] }}</td>
+                        <td class="text-center">{{ mepa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="mepa" value="mepa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ stga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ stga[1] }}</td>
+                        <td class="text-center">{{ stga[2] }}</td>
+                        <td class="text-center">{{ stga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="stga" value="stga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bhga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bhga[1] }}</td>
+                        <td class="text-center">{{ bhga[2] }}</td>
+                        <td class="text-center">{{ bhga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bhga" value="bhga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ ph[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ ph[1] }}</td>
+                        <td class="text-center">{{ ph[2] }}</td>
+                        <td class="text-center">{{ ph[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="ph" value="ph" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bsbh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bsbh[1] }}</td>
+                        <td class="text-center">{{ bsbh[2] }}</td>
+                        <td class="text-center">{{ bsbh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bsbh" value="bsbh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ rase[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ rase[1] }}</td>
+                        <td class="text-center">{{ rase[2] }}</td>
+                        <td class="text-center">{{ rase[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="rase" value="rase" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ rach[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ rach[1] }}</td>
+                        <td class="text-center">{{ rach[2] }}</td>
+                        <td class="text-center">{{ rach[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="rach" value="rach" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ sspa[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ sspa[1] }}</td>
+                        <td class="text-center">{{ sspa[2] }}</td>
+                        <td class="text-center">{{ sspa[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="sspa" value="sspa" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ drka[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ drka[1] }}</td>
+                        <td class="text-center">{{ drka[2] }}</td>
+                        <td class="text-center">{{ drka[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="drka" value="drka" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ bh[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ bh[1] }}</td>
+                        <td class="text-center">{{ bh[2] }}</td>
+                        <td class="text-center">{{ bh[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="bh" value="bh" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><img src="{{ vaga[0] }}" width=200 height=150></td>
+                        <td class="text-center">{{ vaga[1] }}</td>
+                        <td class="text-center">{{ vaga[2] }}</td>
+                        <td class="text-center">{{ vaga[3] }}</td>
+                        <td class="text-center">
+                            <form action="/" method="POST" encytpe="multipart/form-data">
+                                <button type="submit" name="vaga" value="vaga" class="text-center btn btn-info">Add To Cart</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('#') }}">Place Order</a>
+        </li> -->
+
+
+
+        
+    if specials and sweets and drysnacks and khakharas:
+        pass
+    else:
+        addingAllDrySnacks()
+        addingAllKhakharas()
+        addingAllSpecials()
+        addingAllSweets()
+        db.session.commit()
+    specials = SpecialsProduct.query.all()
+    sweets = SweetsProduct.query.all()
+    drysnacks = DrySnacksProduct.query.all()
+    khakharas = KhakharasProduct.query.all()
+
+    from app import db, app
+from app.models import SpecialsProduct, DrySnacksProduct, SweetsProduct, KhakharasProduct
+
+def addItemToSpecialsDB(image_file, name, amount, priceForEach):
+    specialItem = SpecialsProduct(image_file=image_file, name=name, amount=amount, priceForEach=priceForEach)
+    db.session.add(specialItem)
+    db.session.commit()
+def addItemToDrySnacksDB(image_file, name, amount, priceForEach):
+    drysnackItem = DrySnacksProduct(image_file=image_file, name=name, amount=amount, priceForEach=priceForEach)
+    db.session.add(drysnackItem)
+    db.session.commit()
+def addItemToSweetsDB(image_file, name, amount, priceForEach):
+    sweetItem = SweetsProduct(image_file=image_file, name=name, amount=amount, priceForEach=priceForEach)
+    db.session.add(sweetItem)
+    db.session.commit()
+def addItemToKhakharasDB(image_file, name, amount, priceForEach):
+    khakharaItem = KhakharasProduct(image_file=image_file, name=name, amount=amount, priceForEach=priceForEach)
+    db.session.add(khakharaItem)
+    db.session.commit()
+
+# def addingAllKhakharas():
+#     # Khakharas:
+#     addItemToKhakharasDB("/static/images/jeerakhakhara.png", "Jeera Khakhara", "500g", "$4.00")
+#     addItemToKhakharasDB("/static/images/kothmirmarchakhakhara.jpg", "Kothmir Marcha Khakahra", "500g", "$4.00")
+#     addItemToKhakharasDB("/static/images/masalakhakhra.jpg", "Masala Khakhara", "200g", "$1.50")
+#     addItemToKhakharasDB("/static/images/jeeramarikhakhra.jpg", "Jeera Mari Khakhara", "200g", "$1.50")
+#     addItemToKhakharasDB("/static/images/sadakhakhra.jpg", "Sada Khakhara", "200g", "$1.50")
+#     addItemToKhakharasDB("/static/images/acharmasalakhakhra.jpg", "Achar Masala Khakhara", "200g", "$1.50")
+#     addItemToKhakharasDB("/static/images/methikhakhra.jpg", "Methi Khakhara", "200g", "$1.50")
+# def addingAllDrySnacks():
+#     # Dry Snacks:
+#     addItemToDrySnacksDB("/static/images/plainpapadi.jpg", "Plain Papadi", "9 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/masalapapadi.ashx", "Masala Papadi", "9 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/plainsev.jpg", "Plain Sev", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/hotmix.jpg", "Hot Mix", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/khattamithamix.jpeg", "Khatta Mitha Mix", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/surtimix.jpg", "Surti Mix", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/papadchavanu.jpg", "Papad Chavanu", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/methipara.jpg", "Methi Para", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/stargathia.jpg", "Star Ganthia", "11 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/bhavgathiya.png", "Bhav Gathiya", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/phulvadi.jpg", "Phulvadi", "11 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/bikasevbhuji.jfif", "Bikaneri Sev Bhujia", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/ratlamisev.jpg", "Ratlami Sev", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/rajwadichevado.png", "Rajwadi Chevado", "12 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/sweetsakarpara.jpg", "Sweet Sakkar Para", "11 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/drykachodi.jpg", "Dry Kachori", "11 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/bhakarwadi.jpg", "Bhakarwadi", "11 OZ", "$3.00")
+#     addItemToDrySnacksDB("/static/images/vanelaganthiya.jpeg", "Vanela Ganthia", "12 OZ", "$3.00")
+# def addingAllSweets():
+#     # Sweets:
+#     addItemToSweetsDB("/static/images/shrikhand.jfif", "Shrikhand", "1 LB", "$6.00")
+#     addItemToSweetsDB("/static/images/gulabjamun.jpg", "Gulab Jamun", "12pcs", "$4.00")
+#     addItemToSweetsDB("/static/images/rasgulla.jpg", "Rasgulla", "8pcs", "$4.00")
+#     addItemToSweetsDB("/static/images/churmanuladoo.jpg", "Churmanu Ladoo", "1 LB", "$6.00")
+#     addItemToSweetsDB("/static/images/magaj.jpg", "Magaj", "14 OZ", "$6.00")
+# def addingAllSpecials():
+#     # Specials:
+#     addItemToSpecialsDB("/static/images/lunchspecial.jpg", "Lunch Special", "Rasmalai, Mutter Paneer, Dal Makhani, Samosa, Paratha, Jeera Rice, Pickles", "$10.00")
+#     addItemToSpecialsDB("/static/images/basundi.webp", "Basundi", "1 LB", "$6.00")
+#     addItemToSpecialsDB("/static/images/bhajinabhajiya.jpg", "Bhaji na Bhajiya", "8pcs", "$4.00")
+
+
+jekh = KhakharasProduct(image_file="/static/images/jeerakhakhara.png", name="Jeera Khakhara", amount="500g", priceForEach="$4.00")
+kmkha = KhakharasProduct(image_file="/static/images/kothmirmarchakhakhara.jpg", name="Kothmir Marcha Khakahra", amount="500g", priceForEach="$4.00")
+makh = KhakharasProduct(image_file="/static/images/masalakhakhra.jpg", name="Masala Khakhara", amount="200g", priceForEach="$1.50")
+jmkh = KhakharasProduct(image_file="/static/images/jeeramarikhakhra.jpg", name="Jeera Mari Khakhara", amount="200g", priceForEach="$1.50")
+sakh = KhakharasProduct(image_file="/static/images/sadakhakhra.jpg", name="Sada Khakhara", amount="200g", priceForEach="$1.50")
+acmkh = KhakharasProduct(image_file="/static/images/acharmasalakhakhra.jpg", name="Achar Masala Khakhara", amount="200g", priceForEach="$1.50")
+
+plpa = DrySnacksProduct(image_file="/static/images/plainpapadi.jpg", name="Plain Papadi", amount="9 OZ", priceForEach="$3.00")
+mapa = DrySnacksProduct(image_file="/static/images/masalapapadi.ashx", name="Masala Papadi", amount="9 OZ", priceForEach="$3.00")
+plse = DrySnacksProduct(image_file="/static/images/plainsev.jpg", name="Plain Sev", amount="12 OZ", priceForEach="$3.00")
+homi = DrySnacksProduct(image_file="/static/images/hotmix.jpg", name="Hot Mix", amount="12 OZ", priceForEach="$3.00")
+kmmi = DrySnacksProduct(image_file="/static/images/khattamithamix.jpeg", name="Khatta Mitha Mix", amount="12 OZ", priceForEach="$3.00")
+sumi = DrySnacksProduct(image_file="/static/images/surtimix.jpg", name="Surti Mix", amount="12 OZ", priceForEach="$3.00")
+pach = DrySnacksProduct(image_file="/static/images/papadchavanu.jpg", name="Papad Chavanu", amount="12 OZ", priceForEach="$3.00")
+mepa = DrySnacksProduct(image_file="/static/images/methipara.jpg", name="Methi Para", amount="12 OZ", priceForEach="$3.00")
+stga = DrySnacksProduct(image_file="/static/images/stargathia.jpg", name="Star Ganthia", amount="11 OZ", priceForEach="$3.00")
+bhga = DrySnacksProduct(image_file="/static/images/bhavgathiya.png", name="Bhav Gathiya", amount="12 OZ", priceForEach="$3.00")
+ph = DrySnacksProduct(image_file="/static/images/phulvadi.jpg", name="Phulvadi", amount="11 OZ", priceForEach="$3.00")
+bsbh = DrySnacksProduct(image_file="/static/images/bikasevbhuji.jfif", name="Bikaneri Sev Bhujia", amount="12 OZ", priceForEach="$3.00")
+rase = DrySnacksProduct(image_file="/static/images/ratlamisev.jpg", name="Ratlami Sev", amount="12 OZ", priceForEach="$3.00")
+rach = DrySnacksProduct(image_file="/static/images/rajwadichevado.png", name="Rajwadi Chevado", amount="12 OZ", priceForEach="$3.00")
+sspa = DrySnacksProduct(image_file="/static/images/sweetsakarpara.jpg", name="Sweet Sakkar Para", amount="11 OZ", priceForEach="$3.00")
+drka = DrySnacksProduct(image_file="/static/images/drykachodi.jpg", name="Dry Kachori", amount="11 OZ", priceForEach="$3.00")
+bh = DrySnacksProduct(image_file="/static/images/bhakarwadi.jpg", name="Bhakarwadi", amount="11 OZ", priceForEach="$3.00")
+vaga = DrySnacksProduct(image_file="/static/images/vanelaganthiya.jpeg", name="Vanela Ganthia", amount="12 OZ", priceForEach="$3.00")
+
+sh = SweetsProduct(image_file="/static/images/shrikhand.jfif", name="Shrikhand", amount="1 LB", priceForEach="$6.00")
+guja = SweetsProduct(image_file="/static/images/gulabjamun.jpg", name="Gulab Jamun", amount="12pcs", priceForEach="$4.00")
+ra = SweetsProduct(image_file="/static/images/rasgulla.jpg", name="Rasgulla", amount="8pcs", priceForEach="$4.00")
+chla = SweetsProduct(image_file="/static/images/churmanuladoo.jpg", name="Churmanu Ladoo", amount="1 LB", priceForEach="$6.00")
+ma = SweetsProduct(image_file="/static/images/magaj.jpg", name="Magaj", amount="14 OZ", priceForEach="$6.00")
+
+lusp = SpecialsProduct(image_file="/static/images/lunchspecial.jpg", name="Lunch Special", amount="Rasmalai, Mutter Paneer, Dal Makhani, Samosa, Paratha, Jeera Rice, Pickles", priceForEach="$10.00")
+ba = SpecialsProduct(image_file="/static/images/basundi.webp", name="Basundi", amount="1 LB", priceForEach="$6.00")
+bnbh = SpecialsProduct(image_file="/static/images/bhajinabhajiya.jpg", name="Bhaji na Bhajiya", amount="8pcs", priceForEach="$4.00")
+
+
+
+db.session.add(jekh)
+db.session.add(kmkha)
+db.session.add(makh)
+db.session.add(jmkh)
+db.session.add(sakh)
+db.session.add(acmkh)
+db.session.add(plpa)
+db.session.add(mapa)
+db.session.add(plse)
+db.session.add(homi)
+db.session.add(kmmi)
+db.session.add(sumi)
+db.session.add(pach)
+db.session.add(mepa)
+db.session.add(stga)
+db.session.add(bhga)
+db.session.add(ph)
+db.session.add(bsbh)
+db.session.add(rase)
+db.session.add(rach)
+db.session.add(sspa)
+db.session.add(drka)
+db.session.add(bh)
+db.session.add(vaga)
+db.session.add(sh)
+db.session.add(guja)
+db.session.add(ra)
+db.session.add(chla)
+db.session.add(ma)
+db.session.add(lusp)
+db.session.add(ba)
+db.session.add(bnbh)
+db.session.commit()
+

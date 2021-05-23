@@ -24,9 +24,3 @@ mail = Mail(app)
 
 from app import routes, models
 from app.models import SpecialsProduct, DrySnacksProduct, SweetsProduct, KhakharasProduct, User, Cart
-from app.insert_product import addItemToSpecialsDB, addItemToDrySnacksDB, addItemToSweetsDB, addItemToKhakharasDB
-from app.routes import addingAllKhakharas, addingAllDrySnacks, addingAllSweets, addingAllSpecials
-
-@app.before_first_request
-def before_first_request():
-

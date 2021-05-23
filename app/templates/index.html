@@ -19,30 +19,27 @@
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://www.jsmconline.org/about_us.php">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('order') }}">Place Order</a>
-                    </li>
                     {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+                        </li>
                     {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                        </li>
                     {% endif %}
                 </div>
             </div>
         </nav>
     </div>
 
-    <main role="main">
+    <main role="main" class="container-fluid">
 
 
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -56,457 +53,102 @@
                     </div>
                 {% endfor %}
             {% endif %}
-        {% endwith %}   
+        {% endwith %}
 
         <div class="container-fluid mt-3">
             <br>
             <legend><b>Specials</b></legend>
             <hr>
+            <div class="text-center">
+                {% for product in specials %}
+                    <div class="card ml-3 mr-3 mt-3" style="display: inline-block" height=225>
+                        <img src="{{ product.image_file }}" class="card-img-top" alt="Product Image" height=225>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                {{ product.amount }}
+                                <br>
+                                <br>
+                                {{ product.priceForEach }}
+                            </p>
+                            {% if current_user.is_authenticated %}
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+            </div>
         </div>
-        <div class="container-fluid">
-            <table class="table table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center" scope="col">Image</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Price</th>
-                    <th class="text-center" scope="col">Add To Cart</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><img src="{{ lunchSpecial[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ lunchSpecial[1] }}</td>
-                        <td class="text-center"><p>Includes:<br>Basundi,<br> Bhaji na Bhajiya,<br> Bhinda-Capsicum-Tomato-Shaak,<br> Kala Chana,<br> Puri, Jeera Rice, Dal Fry</p><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
-                        <td class="text-center">{{ lunchSpecial[3] }}</td>
-                        <td class="text-center">
-                            <form method="POST" action="/" enctype="multipart/form-data">
-                                <button type="submit" name="lunchSpecial" value="lunchSpecial" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ basundi[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ basundi[1] }}</td>
-                        <td class="text-center">{{ basundi[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</td>
-                        <td class="text-center">{{ basundi[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" enctype="multipart/form-data">
-                                <button type="submit" name="basundi" value="basundi" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ bhajinabhajiya[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ bhajinabhajiya[1] }}</td>
-                        <td class="text-center">{{ bhajinabhajiya[2] }}<br><br><p style="font-size: larger;">Available on Sunday, April 18th Only</p></td>
-                        <td class="text-center">{{ bhajinabhajiya[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="bhajinabhajiya" value="bhajinabhajiya" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-                
-            </table>
-        </div>
-
         <div class="container-fluid mt-3">
             <br>
             <legend><b>Sweets</b></legend>
             <hr>
+            <div class="text-center">
+                {% for product in sweets %}
+                    <div class="card ml-3 mr-3 mt-3" style="display: inline-block">
+                        <img src="{{ product.image_file }}" class="card-img-top" alt="Product Image" height=225 width=225>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                {{ product.amount }}
+                                <br>
+                                <br>
+                                {{ product.priceForEach }}
+                            </p>
+                            {% if current_user.is_authenticated %}
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+            </div>
         </div>
-        <div class="container-fluid">
-            <table class="table table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center" scope="col">Image</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Price</th>
-                    <th class="text-center" scope="col">Add To Cart</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><img src="{{ sh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ sh[1] }}</td>
-                        <td class="text-center">{{ sh[2] }}</td>
-                        <td class="text-center">{{ sh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="sh" value="sh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ guja[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ guja[1] }}</td>
-                        <td class="text-center">{{ guja[2] }}</td>
-                        <td class="text-center">{{ guja[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="guja" value="guja" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ ragu[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ ragu[1] }}</td>
-                        <td class="text-center">{{ ragu[2] }}</td>
-                        <td class="text-center">{{ ragu[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="ragu" value="ragu" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ gcla[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ gcla[1] }}</td>
-                        <td class="text-center">{{ gcla[2] }}</td>
-                        <td class="text-center">{{ gcla[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="gcla" value="gcla" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ ma[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ ma[1] }}</td>
-                        <td class="text-center">{{ ma[2] }}</td>
-                        <td class="text-center">{{ ma[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="ma" value="ma" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-                
-            </table>
-
         <div class="container-fluid mt-3">
             <br>
             <legend><b>Khakharas</b></legend>
             <hr>
+            <div class="text-center">
+                {% for product in khakharas %}
+                    <div class="card ml-3 mr-3 mt-3" style="display: inline-block">
+                        <img src="{{ product.image_file }}" class="card-img-top" alt="Product Image" height=225 width=225>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                {{ product.amount }}
+                                <br>
+                                <br>
+                                {{ product.priceForEach }}
+                            </p>
+                            {% if current_user.is_authenticated %}
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+            </div>
         </div>
-        <div class="container-fluid">
-            <table class="table table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center" scope="col">Image</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Price</th>
-                    <th class="text-center" scope="col">Add To Cart</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><img src="{{ jekh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ jekh[1] }}</td>
-                        <td class="text-center">{{ jekh[2] }}</td>
-                        <td class="text-center">{{ jekh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="jekh" value="jekh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ kmkh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ kmkh[1] }}</td>
-                        <td class="text-center">{{ kmkh[2] }}</td>
-                        <td class="text-center">{{ kmkh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="kmkh" value="kmkh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ makh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ makh[1] }}</td>
-                        <td class="text-center">{{ makh[2] }}</td>
-                        <td class="text-center">{{ makh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="makh" value="makh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ jmkh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ jmkh[1] }}</td>
-                        <td class="text-center">{{ jmkh[2] }}</td>
-                        <td class="text-center">{{ jmkh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="jmkh" value="jmkh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ plkh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ plkh[1] }}</td>
-                        <td class="text-center">{{ plkh[2] }}</td>
-                        <td class="text-center">{{ plkh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="plkh" value="plkh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ amkh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ amkh[1] }}</td>
-                        <td class="text-center">{{ amkh[2] }}</td>
-                        <td class="text-center">{{ amkh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="amkh" value="amkh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ mekh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ mekh[1] }}</td>
-                        <td class="text-center">{{ mekh[2] }}</td>
-                        <td class="text-center">{{ mekh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="mekh" value="mekh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-                
-            </table>
-        </div>
-
-
         <div class="container-fluid mt-3">
             <br>
             <legend><b>Dry Snacks</b></legend>
             <hr>
-        </div>
-        <div class="container-fluid">
-            <table class="table table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center" scope="col">Image</th>
-                    <th class="text-center" scope="col">Name</th>
-                    <th class="text-center" scope="col">Amount</th>
-                    <th class="text-center" scope="col">Price</th>
-                    <th class="text-center" scope="col">Add To Cart</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><img src="{{ plpa[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ plpa[1] }}</td>
-                        <td class="text-center">{{ plpa[2] }}</td>
-                        <td class="text-center">{{ plpa[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="plpa" value="plpa" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ mapa[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ mapa[1] }}</td>
-                        <td class="text-center">{{ mapa[2] }}</td>
-                        <td class="text-center">{{ mapa[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="mapa" value="mapa" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ plse[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ plse[1] }}</td>
-                        <td class="text-center">{{ plse[2] }}</td>
-                        <td class="text-center">{{ plse[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="plse" value="plse" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ homi[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ homi[1] }}</td>
-                        <td class="text-center">{{ homi[2] }}</td>
-                        <td class="text-center">{{ homi[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="homi" value="homi" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ kmmi[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ kmmi[1] }}</td>
-                        <td class="text-center">{{ kmmi[2] }}</td>
-                        <td class="text-center">{{ kmmi[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="kmmi" value="kmmi" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ sumi[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ sumi[1] }}</td>
-                        <td class="text-center">{{ sumi[2] }}</td>
-                        <td class="text-center">{{ sumi[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="sumi" value="sumi" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ pach[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ pach[1] }}</td>
-                        <td class="text-center">{{ pach[2] }}</td>
-                        <td class="text-center">{{ pach[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="pach" value="pach" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ mepa[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ mepa[1] }}</td>
-                        <td class="text-center">{{ mepa[2] }}</td>
-                        <td class="text-center">{{ mepa[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="mepa" value="mepa" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ stga[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ stga[1] }}</td>
-                        <td class="text-center">{{ stga[2] }}</td>
-                        <td class="text-center">{{ stga[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="stga" value="stga" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ bhga[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ bhga[1] }}</td>
-                        <td class="text-center">{{ bhga[2] }}</td>
-                        <td class="text-center">{{ bhga[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="bhga" value="bhga" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ ph[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ ph[1] }}</td>
-                        <td class="text-center">{{ ph[2] }}</td>
-                        <td class="text-center">{{ ph[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="ph" value="ph" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ bsbh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ bsbh[1] }}</td>
-                        <td class="text-center">{{ bsbh[2] }}</td>
-                        <td class="text-center">{{ bsbh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="bsbh" value="bsbh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ rase[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ rase[1] }}</td>
-                        <td class="text-center">{{ rase[2] }}</td>
-                        <td class="text-center">{{ rase[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="rase" value="rase" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ rach[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ rach[1] }}</td>
-                        <td class="text-center">{{ rach[2] }}</td>
-                        <td class="text-center">{{ rach[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="rach" value="rach" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ sspa[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ sspa[1] }}</td>
-                        <td class="text-center">{{ sspa[2] }}</td>
-                        <td class="text-center">{{ sspa[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="sspa" value="sspa" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ drka[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ drka[1] }}</td>
-                        <td class="text-center">{{ drka[2] }}</td>
-                        <td class="text-center">{{ drka[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="drka" value="drka" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ bh[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ bh[1] }}</td>
-                        <td class="text-center">{{ bh[2] }}</td>
-                        <td class="text-center">{{ bh[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="bh" value="bh" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><img src="{{ vaga[0] }}" width=200 height=150></td>
-                        <td class="text-center">{{ vaga[1] }}</td>
-                        <td class="text-center">{{ vaga[2] }}</td>
-                        <td class="text-center">{{ vaga[3] }}</td>
-                        <td class="text-center">
-                            <form action="/" method="POST" encytpe="multipart/form-data">
-                                <button type="submit" name="vaga" value="vaga" class="text-center btn btn-info">Add To Cart</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-                
-            </table>
+            <div class="text-center">
+                {% for product in drysnacks %}
+                    <div class="card row m-3" style="width: 18rem; display: inline-block;" height=225>
+                        <img class="card-img-top" src="{{ product.image_file }}" alt="Card image cap" height=225>
+                        <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.amount }}<br><br>{{ product.priceForEach }}</p>
+                        {% if current_user.is_authenticated %}
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+            </div>
         </div>
 
     </main>

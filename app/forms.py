@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, SubmitField, BooleanField, IntegerField, PasswordField
+from wtforms import StringField, SubmitField, BooleanField, IntegerField, PasswordField, SelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError, NumberRange, EqualTo
 from app.models import User
 import email_validator
@@ -62,3 +62,11 @@ class ResetPasswordForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
     submit = SubmitField("Reset Password")
+
+class AdminAddProductForm(FlaskForm):
+    types_of_products = SelectField("Type of Product", choices=[("special", "Specials"), ("sweet", "Sweets"), ("drysnack", "DrySnacks"), ("khakhara", "Khakharas")], validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()])
+    amount = StringField("Amount", validators=[DataRequired()])
+    price = StringField("Price", validators=[DataRequired()])
+    image = FileField("Upload Item Picture", validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif']), DataRequired()])
+    submit = SubmitField("Add Product")
