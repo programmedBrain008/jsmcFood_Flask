@@ -13,7 +13,7 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 login_manager.login_message_category = "info"
-# Flask Mail:
+# Flask Mail Settings:
 app.config["MAIL_SERVER"] = 'smtp.googlemail.com'
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
@@ -23,3 +23,10 @@ app.config["MAIL_PASSWORD"] = os.environ.get('EMAIL_PASSWORD')
 mail = Mail(app)
 
 from app import routes, models
+from app.models import SpecialsProduct, DrySnacksProduct, SweetsProduct, KhakharasProduct, User, Cart
+from app.insert_product import addItemToSpecialsDB, addItemToDrySnacksDB, addItemToSweetsDB, addItemToKhakharasDB
+from app.routes import addingAllKhakharas, addingAllDrySnacks, addingAllSweets, addingAllSpecials
+
+@app.before_first_request
+def before_first_request():
+
