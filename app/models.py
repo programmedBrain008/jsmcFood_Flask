@@ -1,3 +1,5 @@
+from flask import flash, request
+from sqlalchemy.orm import backref
 from app import db, login_manager, app
 from flask_login import UserMixin
 from datetime import datetime
@@ -13,6 +15,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default="default.jpg")
     password = db.Column(db.String(60), nullable=False)
+    creditcardnum = db.Column(db.Integer, nullable=False)
+    securitycode = db.Column(db.Integer, nullable=False)
+    expirationdate = db.Column(db.String(50), nullable=False)
     products = db.relationship("Cart", backref="buyer", lazy=True)
 
     def get_reset_token(self, expires_sec=1800):
@@ -29,30 +34,28 @@ class User(db.Model, UserMixin):
         return User.query.get(user_id)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
-
+        return f"'{self.username}'"
 
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    amount = db.Column(db.Integer, nullable=False)
+    amount = db.Column(db.String(50), nullable=False)
     priceForEach = db.Column(db.Float, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Float, nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
+    
     def __repr__(self):
-        return f"Cart('{self.name}', '{self.date_added}')"
+        return f"'{self.name}'"
 
 class SpecialsProduct(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_file = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(200), nullable=False)
-    amount = db.Column(db.String(200), nullable=False)
-    priceForEach = db.Column(db.String(200), nullable=False)
+    amount = db.Column(db.String(50), nullable=False)
+    priceForEach = db.Column(db.Float, nullable=False)
     
-
     def __repr__(self):
         return f"{self.name}"
 
@@ -60,8 +63,8 @@ class DrySnacksProduct(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_file = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(200), nullable=False)
-    amount = db.Column(db.String(200), nullable=False)
-    priceForEach = db.Column(db.String(200), nullable=False)
+    amount = db.Column(db.String(50), nullable=False)
+    priceForEach = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
         return f"{self.name}"
@@ -70,8 +73,8 @@ class SweetsProduct(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_file = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(200), nullable=False)
-    amount = db.Column(db.String(200), nullable=False)
-    priceForEach = db.Column(db.String(200), nullable=False)
+    amount = db.Column(db.String(50), nullable=False)
+    priceForEach = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
         return f"{self.name}"
@@ -80,8 +83,8 @@ class KhakharasProduct(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_file = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(200), nullable=False)
-    amount = db.Column(db.String(200), nullable=False)
-    priceForEach = db.Column(db.String(200), nullable=False)
+    amount = db.Column(db.String(50), nullable=False)
+    priceForEach = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
         return f"{self.name}"

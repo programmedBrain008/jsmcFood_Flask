@@ -23,4 +23,3 @@ app.config["MAIL_PASSWORD"] = os.environ.get('EMAIL_PASSWORD')
 mail = Mail(app)
 
 from app import routes, models
-from app.models import SpecialsProduct, DrySnacksProduct, SweetsProduct, KhakharasProduct, User, Cart

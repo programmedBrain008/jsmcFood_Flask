@@ -3,15 +3,16 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField, BooleanField, IntegerField, PasswordField, SelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError, NumberRange, EqualTo
 from app.models import User
-import email_validator
 from flask_login import current_user
-
 
 class RegistrationForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
+    creditcardnum = StringField("Credit Card Number", validators=[DataRequired()])
+    securitycode = StringField("Security Code", validators=[DataRequired()])
+    expirationdate = StringField("Credit Card Expiration Date", validators=[DataRequired()])
     
     submit = SubmitField("Sign Up")
 
@@ -23,6 +24,22 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError("That email already exists. Please choose a different one.")
+    def validate_creditcardnum(self, creditcardnum):
+        ccnum = list(creditcardnum.data.strip())
+        check_digit = ccnum.pop()
+        ccnum.reverse()
+        processed_digits = []
+        for index, digit in enumerate(ccnum):
+            if index % 2 == 0:
+                doubled_digit = int(digit) * 2
+                if doubled_digit > 9:
+                    doubled_digit = doubled_digit - 9
+                processed_digits.append(doubled_digit)
+            else:
+                processed_digits.append(int(digit))
+        total = int(check_digit) + sum(processed_digits)
+        if total % 10 != 0:
+            raise ValidationError("That is an invalid Credit Card number. Please check your input.")
 
 class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
@@ -35,6 +52,9 @@ class UpdateAccountForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField("Email", validators=[DataRequired(), Email()])
     picture = FileField("Upload Profile Picture", validators=[FileAllowed(['jpg', 'png'])])
+    creditcardnum = StringField("Credit Card Number", validators=[DataRequired()])
+    securitycode = StringField("Security Code", validators=[DataRequired()])
+    expirationdate = StringField("Credit Card Expiration Date", validators=[DataRequired()])
     
     submit = SubmitField("Update Account")
 
@@ -48,6 +68,22 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError("That email already exists. Please choose a different one.")
+    def validate_creditcardnum(self, creditcardnum):
+        ccnum = list(creditcardnum.data.strip())
+        check_digit = ccnum.pop()
+        ccnum.reverse()
+        processed_digits = []
+        for index, digit in enumerate(ccnum):
+            if index % 2 == 0:
+                doubled_digit = int(digit) * 2
+                if doubled_digit > 9:
+                    doubled_digit = doubled_digit - 9
+                processed_digits.append(doubled_digit)
+            else:
+                processed_digits.append(int(digit))
+        total = int(check_digit) + sum(processed_digits)
+        if total % 10 != 0:
+            raise ValidationError("That is an invalid Credit Card number. Please check your input.")
 
 class RequestResetForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
@@ -63,10 +99,22 @@ class ResetPasswordForm(FlaskForm):
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
     submit = SubmitField("Reset Password")
 
-class AdminAddProductForm(FlaskForm):
-    types_of_products = SelectField("Type of Product", choices=[("special", "Specials"), ("sweet", "Sweets"), ("drysnack", "DrySnacks"), ("khakhara", "Khakharas")], validators=[DataRequired()])
-    name = StringField("Name", validators=[DataRequired()])
-    amount = StringField("Amount", validators=[DataRequired()])
-    price = StringField("Price", validators=[DataRequired()])
-    image = FileField("Upload Item Picture", validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif']), DataRequired()])
-    submit = SubmitField("Add Product")
+class AddToCartSpecialsForm(FlaskForm):
+    quantity = SelectField("Quantity", validators=[DataRequired()], choices=["1", "2", "3", "4", "5"])
+    addspecial = SubmitField("Add To Cart")
+
+class AddToCartSweetsForm(FlaskForm):
+    quantity = SelectField("Quantity", validators=[DataRequired()], choices=["1", "2", "3", "4", "5"])
+    addsweet = SubmitField("Add To Cart")
+
+class AddToCartKhakharasForm(FlaskForm):
+    quantity = SelectField("Quantity", validators=[DataRequired()], choices=["1", "2", "3", "4", "5"])
+    addkhakhara = SubmitField("Add To Cart")
+
+class AddToCartDrySnacksForm(FlaskForm):
+    quantity = SelectField("Quantity", validators=[DataRequired()], choices=["1", "2", "3", "4", "5"])
+    adddrysnack = SubmitField("Add To Cart")
+
+class RemoveItemFromCartForm(FlaskForm):
+    remove = SubmitField("Remove")
+    

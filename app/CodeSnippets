@@ -1940,41 +1940,41 @@ def addItemToKhakharasDB(image_file, name, amount, priceForEach):
 #     addItemToSpecialsDB("/static/images/bhajinabhajiya.jpg", "Bhaji na Bhajiya", "8pcs", "$4.00")
 
 
-jekh = KhakharasProduct(image_file="/static/images/jeerakhakhara.png", name="Jeera Khakhara", amount="500g", priceForEach="$4.00")
-kmkha = KhakharasProduct(image_file="/static/images/kothmirmarchakhakhara.jpg", name="Kothmir Marcha Khakahra", amount="500g", priceForEach="$4.00")
-makh = KhakharasProduct(image_file="/static/images/masalakhakhra.jpg", name="Masala Khakhara", amount="200g", priceForEach="$1.50")
-jmkh = KhakharasProduct(image_file="/static/images/jeeramarikhakhra.jpg", name="Jeera Mari Khakhara", amount="200g", priceForEach="$1.50")
-sakh = KhakharasProduct(image_file="/static/images/sadakhakhra.jpg", name="Sada Khakhara", amount="200g", priceForEach="$1.50")
-acmkh = KhakharasProduct(image_file="/static/images/acharmasalakhakhra.jpg", name="Achar Masala Khakhara", amount="200g", priceForEach="$1.50")
+jekh = KhakharasProduct(image_file="/static/images/jeerakhakhara.png", name="Jeera Khakhara", amount="500g", priceForEach=4.00)
+kmkha = KhakharasProduct(image_file="/static/images/kothmirmarchakhakhara.jpg", name="Kothmir Marcha Khakahra", amount="500g", priceForEach=4.00)
+makh = KhakharasProduct(image_file="/static/images/masalakhakhra.jpg", name="Masala Khakhara", amount="200g", priceForEach=1.50)
+jmkh = KhakharasProduct(image_file="/static/images/jeeramarikhakhra.jpg", name="Jeera Mari Khakhara", amount="200g", priceForEach=1.50)
+sakh = KhakharasProduct(image_file="/static/images/sadakhakhra.jpg", name="Sada Khakhara", amount="200g", priceForEach=1.50)
+acmkh = KhakharasProduct(image_file="/static/images/acharmasalakhakhra.jpg", name="Achar Masala Khakhara", amount="200g", priceForEach=1.50)
 
-plpa = DrySnacksProduct(image_file="/static/images/plainpapadi.jpg", name="Plain Papadi", amount="9 OZ", priceForEach="$3.00")
-mapa = DrySnacksProduct(image_file="/static/images/masalapapadi.ashx", name="Masala Papadi", amount="9 OZ", priceForEach="$3.00")
-plse = DrySnacksProduct(image_file="/static/images/plainsev.jpg", name="Plain Sev", amount="12 OZ", priceForEach="$3.00")
-homi = DrySnacksProduct(image_file="/static/images/hotmix.jpg", name="Hot Mix", amount="12 OZ", priceForEach="$3.00")
-kmmi = DrySnacksProduct(image_file="/static/images/khattamithamix.jpeg", name="Khatta Mitha Mix", amount="12 OZ", priceForEach="$3.00")
-sumi = DrySnacksProduct(image_file="/static/images/surtimix.jpg", name="Surti Mix", amount="12 OZ", priceForEach="$3.00")
-pach = DrySnacksProduct(image_file="/static/images/papadchavanu.jpg", name="Papad Chavanu", amount="12 OZ", priceForEach="$3.00")
-mepa = DrySnacksProduct(image_file="/static/images/methipara.jpg", name="Methi Para", amount="12 OZ", priceForEach="$3.00")
-stga = DrySnacksProduct(image_file="/static/images/stargathia.jpg", name="Star Ganthia", amount="11 OZ", priceForEach="$3.00")
-bhga = DrySnacksProduct(image_file="/static/images/bhavgathiya.png", name="Bhav Gathiya", amount="12 OZ", priceForEach="$3.00")
-ph = DrySnacksProduct(image_file="/static/images/phulvadi.jpg", name="Phulvadi", amount="11 OZ", priceForEach="$3.00")
-bsbh = DrySnacksProduct(image_file="/static/images/bikasevbhuji.jfif", name="Bikaneri Sev Bhujia", amount="12 OZ", priceForEach="$3.00")
-rase = DrySnacksProduct(image_file="/static/images/ratlamisev.jpg", name="Ratlami Sev", amount="12 OZ", priceForEach="$3.00")
-rach = DrySnacksProduct(image_file="/static/images/rajwadichevado.png", name="Rajwadi Chevado", amount="12 OZ", priceForEach="$3.00")
-sspa = DrySnacksProduct(image_file="/static/images/sweetsakarpara.jpg", name="Sweet Sakkar Para", amount="11 OZ", priceForEach="$3.00")
-drka = DrySnacksProduct(image_file="/static/images/drykachodi.jpg", name="Dry Kachori", amount="11 OZ", priceForEach="$3.00")
-bh = DrySnacksProduct(image_file="/static/images/bhakarwadi.jpg", name="Bhakarwadi", amount="11 OZ", priceForEach="$3.00")
-vaga = DrySnacksProduct(image_file="/static/images/vanelaganthiya.jpeg", name="Vanela Ganthia", amount="12 OZ", priceForEach="$3.00")
+plpa = DrySnacksProduct(image_file="/static/images/plainpapadi.jpg", name="Plain Papadi", amount="9 OZ", priceForEach=3.00)
+mapa = DrySnacksProduct(image_file="/static/images/masalapapadi.ashx", name="Masala Papadi", amount="9 OZ", priceForEach=3.00)
+plse = DrySnacksProduct(image_file="/static/images/plainsev.jpg", name="Plain Sev", amount="12 OZ", priceForEach=3.00)
+homi = DrySnacksProduct(image_file="/static/images/hotmix.jpg", name="Hot Mix", amount="12 OZ", priceForEach=3.00)
+kmmi = DrySnacksProduct(image_file="/static/images/khattamithamix.jpeg", name="Khatta Mitha Mix", amount="12 OZ", priceForEach=3.00)
+sumi = DrySnacksProduct(image_file="/static/images/surtimix.jpg", name="Surti Mix", amount="12 OZ", priceForEach=3.00)
+pach = DrySnacksProduct(image_file="/static/images/papadchavanu.jpg", name="Papad Chavanu", amount="12 OZ", priceForEach=3.00)
+mepa = DrySnacksProduct(image_file="/static/images/methipara.jpg", name="Methi Para", amount="12 OZ", priceForEach=3.00)
+stga = DrySnacksProduct(image_file="/static/images/stargathia.jpg", name="Star Ganthia", amount="11 OZ", priceForEach=3.00)
+bhga = DrySnacksProduct(image_file="/static/images/bhavgathiya.png", name="Bhav Gathiya", amount="12 OZ", priceForEach=3.00)
+ph = DrySnacksProduct(image_file="/static/images/phulvadi.jpg", name="Phulvadi", amount="11 OZ", priceForEach=3.00)
+bsbh = DrySnacksProduct(image_file="/static/images/bikasevbhuji.jfif", name="Bikaneri Sev Bhujia", amount="12 OZ", priceForEach=3.00)
+rase = DrySnacksProduct(image_file="/static/images/ratlamisev.jpg", name="Ratlami Sev", amount="12 OZ", priceForEach=3.00)
+rach = DrySnacksProduct(image_file="/static/images/rajwadichevado.png", name="Rajwadi Chevado", amount="12 OZ", priceForEach=3.00)
+sspa = DrySnacksProduct(image_file="/static/images/sweetsakarpara.jpg", name="Sweet Sakkar Para", amount="11 OZ", priceForEach=3.00)
+drka = DrySnacksProduct(image_file="/static/images/drykachodi.jpg", name="Dry Kachori", amount="11 OZ", priceForEach=3.00)
+bh = DrySnacksProduct(image_file="/static/images/bhakarwadi.jpg", name="Bhakarwadi", amount="11 OZ", priceForEach=3.00)
+vaga = DrySnacksProduct(image_file="/static/images/vanelaganthiya.jpeg", name="Vanela Ganthia", amount="12 OZ", priceForEach=3.00)
 
-sh = SweetsProduct(image_file="/static/images/shrikhand.jfif", name="Shrikhand", amount="1 LB", priceForEach="$6.00")
-guja = SweetsProduct(image_file="/static/images/gulabjamun.jpg", name="Gulab Jamun", amount="12pcs", priceForEach="$4.00")
-ra = SweetsProduct(image_file="/static/images/rasgulla.jpg", name="Rasgulla", amount="8pcs", priceForEach="$4.00")
-chla = SweetsProduct(image_file="/static/images/churmanuladoo.jpg", name="Churmanu Ladoo", amount="1 LB", priceForEach="$6.00")
-ma = SweetsProduct(image_file="/static/images/magaj.jpg", name="Magaj", amount="14 OZ", priceForEach="$6.00")
+sh = SweetsProduct(image_file="/static/images/shrikhand.jfif", name="Shrikhand", amount="1 LB", priceForEach=6.00)
+guja = SweetsProduct(image_file="/static/images/gulabjamun.jpg", name="Gulab Jamun", amount="12pcs", priceForEach=4.00)
+ra = SweetsProduct(image_file="/static/images/rasgulla.jpg", name="Rasgulla", amount="8pcs", priceForEach=4.00)
+chla = SweetsProduct(image_file="/static/images/churmanuladoo.jpg", name="Churmanu Ladoo", amount="1 LB", priceForEach=6.00)
+ma = SweetsProduct(image_file="/static/images/magaj.jpg", name="Magaj", amount="14 OZ", priceForEach=6.00)
 
-lusp = SpecialsProduct(image_file="/static/images/lunchspecial.jpg", name="Lunch Special", amount="Rasmalai, Mutter Paneer, Dal Makhani, Samosa, Paratha, Jeera Rice, Pickles", priceForEach="$10.00")
-ba = SpecialsProduct(image_file="/static/images/basundi.webp", name="Basundi", amount="1 LB", priceForEach="$6.00")
-bnbh = SpecialsProduct(image_file="/static/images/bhajinabhajiya.jpg", name="Bhaji na Bhajiya", amount="8pcs", priceForEach="$4.00")
+lusp = SpecialsProduct(image_file="/static/images/lunchspecial.jpg", name="Lunch Special", amount="Rasmalai, Mutter Paneer, Dal Makhani, Samosa, Paratha, Jeera Rice, Pickles", priceForEach=10.00)
+ba = SpecialsProduct(image_file="/static/images/basundi.webp", name="Basundi", amount="1 LB", priceForEach=6.00)
+bnbh = SpecialsProduct(image_file="/static/images/bhajinabhajiya.jpg", name="Bhaji na Bhajiya", amount="8pcs", priceForEach=4.00)
 
 
 
@@ -2012,3 +2012,97 @@ db.session.add(ba)
 db.session.add(bnbh)
 db.session.commit()
 
+@app.route("/account_billing", methods=["GET", "POST"])
+@login_required
+def account_billing():
+    form = BillingAccountForm()
+    if form.validate_on_submit():
+        ccnum = form.creditcardnum.data
+        ccnum = ccnum.strip()
+        if "a" or "b" or "c" or "d" or "e" or "f" or "g" or "h" or "i" or "j" or "k" or "l" or "m" or "n" or "o" or "p" or "q" or "r" or "s" or "t" or "u" or "v" or "w" or "x" or "y" or "z" in str(ccnum):
+            flash("Invalid credit card number. Please check your input.")
+        ccnum = int(ccnum)
+        ccnumlist = list(ccnum)
+        ccnum_check_digit = ccnumlist.pop()
+        ccnumlist.reverse()
+        processed_digits = []
+        for index, digit in enumerate(ccnumlist):
+            if index % 2 == 0:
+                doubled_digit = int(digit) * 2
+                if doubled_digit > 9:
+                    doubled_digit = doubled_digit - 9
+                processed_digits.append(doubled_digit)
+            else:
+                processed_digits.append(int(digit))
+        total = int(ccnum_check_digit) + sum(processed_digits)
+        if total % 10 == 0:
+            billinginfo = User(creditcardnum=form.creditcardnum.data, securitycode=form.securitycode.data, expirationdate=form.expirationdate.data)
+            db.session.add(billinginfo)
+            db.session.commit()
+            flash("Billing Information successfully submitted!", "success")
+            return redirect(url_for('account'))
+        else:
+            flash("Billing Information unsuccessful. Please check your input.", "danger")
+    elif request.method == "GET":
+        form.creditcardnum.data = current_user.creditcardnum
+        form.securitycode.data = current_user.securitycode
+        form.expirationdate.data = current_user.expirationdate
+    return render_template("account_billing.html", title="Account Billing Information", form=form)
+
+
+
+
+
+def AddingSpecialProductsToCart():
+    specialsform = AddToCartSpecialsForm()
+    added_specials_product = request.form.get('itemaddedtospecialscart')
+    added_specials_product_object = SpecialsProduct.query.filter_by(name=added_specials_product).first()
+    product_name = str(added_specials_product_object.name)
+    product_amount = str(added_specials_product_object.amount)
+    product_price = float(added_specials_product_object.priceForEach)
+    quantity_of_product = specialsform.quantity.data
+    total_price = product_price * int(quantity_of_product)
+    buyer = current_user.id
+    cart_product = Cart(name=product_name, amount=product_amount, priceForEach=product_price, quantity=quantity_of_product, total_price=total_price, user_id=buyer)
+    db.session.add(cart_product)
+    db.session.commit()
+
+def AddingSweetProductsToCart():
+    sweetsform = AddToCartSweetsForm()
+    added_sweets_product = request.form.get('itemaddedtosweetscart')
+    added_sweets_product_object = SweetsProduct.query.filter_by(name=added_sweets_product).first()
+    product_name = str(added_sweets_product_object.name)
+    product_amount = str(added_sweets_product_object.amount)
+    product_price = float(added_sweets_product_object.priceForEach)
+    quantity_of_product = sweetsform.quantity.data
+    total_price = product_price * int(quantity_of_product)
+    buyer = current_user.id
+    cart_product = Cart(name=product_name, amount=product_amount, priceForEach=product_price, quantity=quantity_of_product, total_price=total_price, user_id=buyer)
+    db.session.add(cart_product)
+    db.session.commit()
+def AddingKhakharaProductsToCart():
+    khakharasform = AddToCartKhakharasForm()
+    added_khakharas_product = request.form.get('itemaddedtokhakharascart')
+    added_khakharas_product_object = KhakharasProduct.query.filter_by(name=added_khakharas_product).first()
+    product_name = str(added_khakharas_product_object.name)
+    product_amount = str(added_khakharas_product_object.amount)
+    product_price = float(added_khakharas_product_object.priceForEach)
+    quantity_of_product = khakharasform.quantity.data
+    total_price = product_price * int(quantity_of_product)
+    buyer = current_user.id
+    cart_product = Cart(name=product_name, amount=product_amount, priceForEach=product_price, quantity=quantity_of_product, total_price=total_price, user_id=buyer)
+    db.session.add(cart_product)
+    db.session.commit()
+def AddingDrySnackProductsToCart():
+    drysnacksform = AddToCartDrySnacksForm()
+    added_drysnacks_product = request.form.get('itemaddedtodrysnackscart')
+    added_drysnacks_product_object = DrySnacksProduct.query.filter_by(name=added_drysnacks_product).first()
+    product_name = str(added_drysnacks_product_object.name)
+    product_amount = str(added_drysnacks_product_object.amount)
+    product_price = float(added_drysnacks_product_object.priceForEach)
+    quantity_of_product = drysnacksform.quantity.data
+    total_price = product_price * int(quantity_of_product)
+    buyer = current_user.id
+    cart_product = Cart(name=product_name, amount=product_amount, priceForEach=product_price, quantity=quantity_of_product, total_price=total_price, user_id=buyer)
+    db.session.add(cart_product)
+    db.session.commit()
