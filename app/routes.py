@@ -1,6 +1,6 @@
 from flask import url_for, render_template, request, redirect, flash, session
 from app import app, db, bcrypt, mail
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm, AddToCartSpecialsForm, AddToCartSweetsForm, AddToCartKhakharasForm, AddToCartDrySnacksForm, RemoveItemFromCartForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm, AddToCartSpecialsForm, AddToCartSweetsForm, AddToCartKhakharasForm, AddToCartDrySnacksForm, RemoveItemFromCartForm, PurchaseItemForm
 from app.models import db, User, Cart, SpecialsProduct, DrySnacksProduct, SweetsProduct, KhakharasProduct
 from flask_login import login_user, current_user, logout_user, login_required
 import secrets
@@ -115,7 +115,6 @@ def cart():
             db_removal_item = Cart.query.filter_by(name=removal_item).first()
             db.session.delete(db_removal_item)
             db.session.commit()
-            flash(f"You have successfully removed {removal_item} from your cart.", "success")
             return redirect(url_for('cart'))
         if request.form.get('updatequantitybutton'):
             return redirect(url_for('cart'))
@@ -129,6 +128,18 @@ def cart():
         
         return render_template("cart.html", user_cart=user_cart, removeitemform=removeitemform, total_price=total_price)
 
+@app.route("/checkout", methods=["GET", "POST"])
+@login_required
+def checkout():
+    user_cart = Cart.query.all()
+    users = User.query.all()
+    purchase_form = PurchaseItemForm()
+    total_price = 0.0
+    for item in user_cart:
+        total_price = item.total_price + total_price
+
+    return render_template("checkout.html", user_cart=user_cart, total_price=total_price, current_user=current_user, purchase_form=purchase_form)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
@@ -136,10 +147,10 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password, creditcardnum=form.creditcardnum.data, securitycode=form.securitycode.data, expirationdate=form.expirationdate.data)
+        user = User(fullname=form.fullname.data, username=form.username.data, email=form.email.data, phonenumber=form.phonenumber.data,password=hashed_password, creditcardnum=form.creditcardnum.data, securitycode=form.securitycode.data, expirationdate=form.expirationdate.data)
         db.session.add(user)
         db.session.commit()
-        flash("Your account has been created successfully! You can now sign in with your newly created account!", "success")
+        flash("Your account has been created successfully! Login with your newly created account.", "success")
         return redirect(url_for('login'))
     return render_template("register.html", title="Register", form=form)
 
@@ -183,8 +194,10 @@ def account():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
+        current_user.fullname = form.fullname.data
         current_user.username = form.username.data
         current_user.email = form.email.data
+        current_user.phonenumber = form.phonenumber.data
         current_user.creditcardnum = form.creditcardnum.data
         current_user.securitycode = form.securitycode.data
         current_user.expirationdate = form.expirationdate.data
@@ -192,8 +205,10 @@ def account():
         flash("Your account has been updated!", "success")
         return redirect(url_for("account"))
     elif request.method == "GET":
+        form.fullname.data = current_user.fullname
         form.username.data = current_user.username
         form.email.data = current_user.email
+        form.phonenumber.data = current_user.phonenumber
         form.creditcardnum.data = current_user.creditcardnum
         form.securitycode.data = current_user.securitycode
         form.expirationdate.data = current_user.expirationdate
@@ -217,9 +232,7 @@ def reset_request():
     form = RequestResetForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        
         send_reset_email(user)
-
         flash("An email has been sent with instructions to reset your password.", "info")
         return redirect(url_for("login"))
     return render_template("reset_request.html", title="Reset Password", form=form)

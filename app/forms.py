@@ -6,8 +6,10 @@ from app.models import User
 from flask_login import current_user
 
 class RegistrationForm(FlaskForm):
+    fullname = StringField("Full Name", validators=[DataRequired()])
     username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField("Email", validators=[DataRequired(), Email()])
+    phonenumber = StringField("Phone Number", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
     creditcardnum = StringField("Credit Card Number", validators=[DataRequired()])
@@ -49,8 +51,10 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 class UpdateAccountForm(FlaskForm):
+    fullname = StringField("Full Name", validators=[DataRequired()])
     username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField("Email", validators=[DataRequired(), Email()])
+    phonenumber = StringField("Phone Number", validators=[DataRequired()])
     picture = FileField("Upload Profile Picture", validators=[FileAllowed(['jpg', 'png'])])
     creditcardnum = StringField("Credit Card Number", validators=[DataRequired()])
     securitycode = StringField("Security Code", validators=[DataRequired()])
@@ -117,4 +121,7 @@ class AddToCartDrySnacksForm(FlaskForm):
 
 class RemoveItemFromCartForm(FlaskForm):
     remove = SubmitField("Remove")
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField("Purchase")
     

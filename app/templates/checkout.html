@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Checkout | JSMC Food Court</title> 
+{% endblock %}
+
+{% block body %}
+
+    {% if user_cart %}
+        <div class="container">
+            <h1 class="text-center">Checkout</h1>
+            <hr class="container text-center">
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="container-fluid">
+            <h2 class="ml-4">Your Cart:</h2>
+            <hr class="ml-4">
+            <br>
+            <br>
+        </div>
+        
+        <div class="container">
+            <table class="table table-hover table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in user_cart %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.amount }}</td>
+                            <td>${{ item.priceForEach }}0</td>
+                            <td>{{ item.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <h5><b>Total Price: ${{ total_price }}0</b></h5>
+            <br>
+            <a href="{{ url_for('cart') }}" class="btn btn-info">Update Cart</a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <h2 class="ml-4">Your Information:</h2>
+            <hr class="ml-4">
+            <br>
+            <br>
+        </div>
+        
+        <div class="container">
+            <p>
+                <h5>
+                    <b>Full Name:</b> {{ current_user.fullname }}<br><br>
+                    <b>Email:</b> {{ current_user.email }}<br><br>
+                    <b>Phone Number:</b> {{ current_user.phonenumber }}<br><br>
+                    <b>Credit Card Number:</b> {{ current_user.creditcardnum }}<br><br>
+                    <b>Security Code:</b> {{ current_user.securitycode }}<br><br>
+                    <b>Credit Card Expiration Data:</b> {{ current_user.expirationdate }}<br><br>
+                </h5>
+            </p>
+            <br>
+            <a href="{{ url_for('account') }}" class="btn btn-info">Update Information</a>
+        </div>
+    {% else %}
+        <br><h3 class="text-center">Your cart is empty. Please add items to your cart before checkout.</h3><br><br>
+        <h4 class="text-center">Visit the <a href="{{ url_for('snackPage') }}">home page</a> to add items to your cart.</h4>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <!-- Button trigger modal -->
+        <a data-toggle="modal" data-target="#purchase_modal" type="submit" class="container btn btn-success btn-large">
+            Purchase
+        </a>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="purchase_modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Purchase Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">    
+                            <span aria-hidden="false">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to place this order? All sales are final and returns are not accepted.</p>
+                        <br>
+                        <p>Total Price: ${{ total_price }}0</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="container btn btn-success" data-dismiss="modal">Confirm Purchase</button>
+                        <button type="button" class="container btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+{% endblock %}
